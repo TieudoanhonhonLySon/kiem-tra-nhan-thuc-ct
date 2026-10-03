@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIỂU ĐOÀN HỖN HỢP LÝ SƠN - KIỂM TRA NHẬN THỨC CHÍNH TRỊ NĂM 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        army: {
+                            dark: '#122519',
+                            main: '#1C3A27',
+                            light: '#2E5A3C',
+                            accent: '#437A53',
+                            bg: '#F4F7F4'
+                        },
+                        gold: {
+                            light: '#FFE57F',
+                            main: '#FFD700',
+                            dark: '#D4AF37'
+                        },
+                        militaryRed: {
+                            main: '#D32F2F',
+                            dark: '#B71C1C'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #EFEFEF;
+            background-image: radial-gradient(#1C3A27 0.5px, transparent 0.5px), radial-gradient(#1C3A27 0.5px, #EFEFEF 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-opacity: 0.05;
+        }
+        .gold-border {
+            border: 2px solid #D4AF37;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+        }
+        .army-gradient {
+            background: linear-gradient(135deg, #1C3A27 0%, #122519 100%);
+        }
+        .red-gradient {
+            background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 25px -5px rgba(28, 58, 39, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E8EFEA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1C3A27;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2E5A3C;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 min-h-screen flex flex-col justify-between selection:bg-gold-main selection:text-army-dark">
+
+    <!-- HEADER -->
+    <header class="army-gradient text-white border-b-4 border-gold-dark sticky top-0 z-50 custom-shadow">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <!-- Logo & Title Section -->
+            <div class="flex items-center space-x-4">
+                <div class="relative group">
+                    <img src="logo_left.jpg" onerror="this.onerror=null; this.src='https://placehold.co/80x80/1C3A27/FFD700?text=LY+SON';" alt="Logo Tiểu Đoàn" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gold-main object-cover shadow-lg bg-army-dark">
+                </div>
+                <div>
+                    <h1 class="text-militaryRed-main text-lg md:text-2xl font-black tracking-wider uppercase drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.8)] leading-tight">
+                        TIỂU ĐOÀN HỖN HỢP LÝ SƠN
+                    </h1>
+                    <h2 class="text-white text-sm md:text-lg font-bold tracking-wide uppercase drop-shadow mt-0.5">
+                        KIỂM TRA NHẬN THỨC CHÍNH TRỊ NĂM 2026
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Home Button & User Info Indicator -->
+            <div class="flex items-center space-x-3 ml-auto">
+                <button id="btnHome" onclick="confirmGoHome()" class="flex items-center space-x-2 bg-gold-main hover:bg-gold-dark text-army-dark font-bold px-4 py-2 rounded-lg shadow transition duration-200 border border-yellow-300">
+                    <i class="fas fa-home"></i>
+                    <span class="hidden sm:inline">Trang chủ</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-6">
+
+        <!-- ================= PAGE 1: TRANG CHỦ & ĐĂNG KÝ ================= -->
+        <div id="pageHome" class="space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Registration Form -->
+                <div class="lg:col-span-5 bg-white rounded-xl shadow-xl border-2 border-army-main overflow-hidden">
+                    <div class="army-gradient p-4 text-white font-bold text-lg flex items-center justify-between border-b-2 border-gold-dark">
+                        <span><i class="fas fa-user-edit text-gold-main mr-2"></i>THÔNG TIN NGƯỜI DỰ THI</span>
+                        <i class="fas fa-shield-alt text-gold-main"></i>
+                    </div>
+                    <form id="formRegister" onsubmit="startExam(event)" class="p-6 space-y-4">
+                        <div>
+                            <label class="block text-army-main font-bold mb-1 text-sm"><i class="fas fa-id-card text-army-light mr-1"></i> 1. Họ và tên <span class="text-red-600">*</span></label>
+                            <input type="text" id="inputName" required placeholder="NHẬP HỌ VÀ TÊN IN HOA..." class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-300 focus:border-army-main focus:ring-0 uppercase font-semibold text-gray-800 outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-army-main font-bold mb-1 text-sm"><i class="fas fa-star text-army-light mr-1"></i> 2. Cấp bậc <span class="text-red-600">*</span></label>
+                            <select id="selectRank" required class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-300 focus:border-army-main focus:ring-0 font-semibold text-gray-800 outline-none transition bg-white">
+                                <option value="" disabled selected>-- Chọn cấp bậc --</option>
+                                <option value="Binh nhì">Binh nhì</option>
+                                <option value="Binh nhất">Binh nhất</option>
+                                <option value="Hạ sĩ">Hạ sĩ</option>
+                                <option value="Trung sĩ">Trung sĩ</option>
+                                <option value="Thượng sĩ">Thượng sĩ</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-army-main font-bold mb-1 text-sm"><i class="fas fa-user-tag text-army-light mr-1"></i> 3. Chức vụ <span class="text-red-600">*</span></label>
+                            <input type="text" id="inputPosition" required placeholder="Ví dụ: Chiến sĩ, Tiểu đội trưởng..." class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-300 focus:border-army-main focus:ring-0 font-semibold text-gray-800 outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-army-main font-bold mb-1 text-sm"><i class="fas fa-sitemap text-army-light mr-1"></i> 4. Đơn vị <span class="text-red-600">*</span></label>
+                            <input type="text" id="inputUnit" required placeholder="Ví dụ: Đại đội 1, Đại đội 2..." class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-300 focus:border-army-main focus:ring-0 font-semibold text-gray-800 outline-none transition">
+                        </div>
+
+                        <div class="bg-amber-50 border-l-4 border-gold-dark p-3 rounded text-xs text-amber-900 font-medium">
+                            <p class="font-bold text-amber-800 mb-1"><i class="fas fa-info-circle mr-1"></i> QUI ĐỊNH BÀI THI:</p>
+                            <ul class="list-disc list-inside space-y-0.5">
+                                <li>Bộ đề gồm <b>50 câu hỏi</b> được chọn ngẫu nhiên từ ngân hàng 239 câu.</li>
+                                <li>Thời gian làm bài: <b>25 phút</b> (1500 giây).</li>
+                                <li>Điểm tối đa: <b>100 điểm</b> (2 điểm / câu).</li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="w-full red-gradient text-white font-black text-lg py-3 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.99] transition duration-150 border-2 border-yellow-400 flex items-center justify-center space-x-2">
+                            <i class="fas fa-play-circle text-gold-main text-xl"></i>
+                            <span>BẮT ĐẦU THI</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Leaderboard Section -->
+                <div class="lg:col-span-7 bg-white rounded-xl shadow-xl border-2 border-army-main overflow-hidden flex flex-col">
+                    <div class="army-gradient p-4 text-white font-bold text-lg flex items-center justify-between border-b-2 border-gold-dark">
+                        <span><i class="fas fa-trophy text-gold-main mr-2"></i>BẢNG XẾP HẠNG THÀNH TÍCH</span>
+                        <button onclick="clearLeaderboard()" class="text-xs text-gray-300 hover:text-red-300 underline"><i class="fas fa-trash-alt mr-1"></i>Xóa lịch sử</button>
+                    </div>
+
+                    <div class="p-4 flex-grow overflow-x-auto">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead>
+                                <tr class="bg-army-bg border-b-2 border-army-main text-army-main font-extrabold uppercase text-xs">
+                                    <th class="p-2.5 text-center">Hạng</th>
+                                    <th class="p-2.5">Họ tên / Đơn vị</th>
+                                    <th class="p-2.5">Cấp bậc / Chức vụ</th>
+                                    <th class="p-2.5 text-center">Điểm</th>
+                                    <th class="p-2.5 text-center">Thời gian</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardBody" class="divide-y divide-gray-200">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                        <div id="noDataText" class="text-center py-8 text-gray-500 font-medium">
+                            <i class="fas fa-clipboard-list text-3xl mb-2 text-gray-300 block"></i>
+                            Chưa có dữ liệu bài thi nào được ghi nhận.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2: MÀN HÌNH LÀM BÀI THI ================= -->
+        <div id="pageExam" class="hidden space-y-6">
+            <!-- Top Status Bar -->
+            <div class="bg-white rounded-xl shadow-lg p-4 border-2 border-army-main flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full army-gradient text-gold-main flex items-center justify-center font-bold text-xl border border-gold-dark">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <div id="examUserInfo" class="font-extrabold text-army-main text-base uppercase">NGUYỄN VĂN A</div>
+                        <div id="examUserSubInfo" class="text-xs font-semibold text-gray-600">Trung sĩ - Tiểu đội trưởng | Đại đội 1</div>
+                    </div>
+                </div>
+
+                <!-- Timer -->
+                <div class="flex items-center bg-red-50 border-2 border-militaryRed-main px-4 py-2 rounded-xl">
+                    <i class="fas fa-clock text-militaryRed-main text-2xl animate-pulse mr-3"></i>
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-militaryRed-main tracking-wider">Thời gian còn lại</div>
+                        <div id="timerDisplay" class="font-black text-2xl text-militaryRed-main tracking-widest font-mono">25:00</div>
+                    </div>
+                </div>
+
+                <button onclick="confirmSubmitExam()" class="red-gradient text-white font-bold px-6 py-2.5 rounded-lg shadow hover:brightness-110 border border-gold-main flex items-center space-x-2">
+                    <i class="fas fa-check-circle"></i>
+                    <span>NỘP BÀI THI</span>
+                </button>
+            </div>
+
+            <!-- Exam Main Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Question Container (8 Cols) -->
+                <div class="lg:col-span-8 bg-white rounded-xl shadow-xl border-2 border-army-main p-6 flex flex-col justify-between">
+                    <div>
+                        <!-- Question Header -->
+                        <div class="flex items-center justify-between border-b-2 border-gold-dark pb-3 mb-4">
+                            <span id="questionNumberTitle" class="army-gradient text-gold-main font-black px-3 py-1 rounded-md text-sm border border-gold-dark">
+                                CÂU HỎI 1 / 50
+                            </span>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider"><i class="fas fa-award text-gold-dark mr-1"></i>2.0 Điểm</span>
+                        </div>
+
+                        <!-- Question Content -->
+                        <div id="questionText" class="text-gray-800 font-bold text-base md:text-lg mb-6 leading-relaxed">
+                            Đang tải nội dung câu hỏi...
+                        </div>
+
+                        <!-- Options Container -->
+                        <div id="optionsContainer" class="space-y-3">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Navigation Controls -->
+                    <div class="flex items-center justify-between border-t border-gray-200 pt-5 mt-8">
+                        <button id="btnPrev" onclick="navigateQuestion(-1)" class="bg-gray-200 hover:bg-gray-300 text-army-main font-bold px-5 py-2.5 rounded-lg transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center">
+                            <i class="fas fa-arrow-left mr-2"></i> Câu trước
+                        </button>
+                        <button id="btnNext" onclick="navigateQuestion(1)" class="army-gradient hover:brightness-125 text-white font-bold px-5 py-2.5 rounded-lg shadow border border-gold-dark transition flex items-center">
+                            Câu tiếp <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question Grid / Navigator (4 Cols) -->
+                <div class="lg:col-span-4 bg-white rounded-xl shadow-xl border-2 border-army-main p-4 flex flex-col">
+                    <div class="font-bold text-army-main pb-2 border-b-2 border-gold-dark mb-3 flex items-center justify-between text-sm">
+                        <span><i class="fas fa-th mr-1 text-gold-dark"></i> DANH MỤC CÂU HỎI</span>
+                        <span id="answeredCountBadge" class="text-xs bg-army-light text-white px-2 py-0.5 rounded-full font-bold">0/50</span>
+                    </div>
+
+                    <div class="text-xs font-semibold text-gray-600 mb-3 flex items-center justify-around bg-gray-50 p-2 rounded border">
+                        <div class="flex items-center"><span class="w-3 h-3 bg-gray-200 border border-gray-400 rounded mr-1"></span> Chưa làm</div>
+                        <div class="flex items-center"><span class="w-3 h-3 bg-army-main rounded mr-1"></span> Đã làm</div>
+                        <div class="flex items-center"><span class="w-3 h-3 bg-gold-main border border-army-main rounded mr-1"></span> Đang chọn</div>
+                    </div>
+
+                    <!-- 50 Buttons Grid -->
+                    <div id="questionGrid" class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto p-1">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 3: KẾT QUẢ & XEM LẠI BÀI THI ================= -->
+        <div id="pageResult" class="hidden space-y-6">
+            <!-- Result Summary Card -->
+            <div class="bg-white rounded-xl shadow-xl border-2 border-army-main p-6 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-3 army-gradient"></div>
+
+                <div class="max-w-2xl mx-auto space-y-4">
+                    <div class="inline-block p-3 rounded-full army-gradient text-gold-main text-3xl shadow-lg border-2 border-gold-main mb-1">
+                        <i class="fas fa-award"></i>
+                    </div>
+
+                    <h2 class="text-2xl font-black text-army-main uppercase tracking-wide">KẾT QUẢ KIỂM TRA NHẬN THỨC CHÍNH TRỊ</h2>
+
+                    <div id="resultUserHeader" class="text-sm font-bold text-gray-600">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <!-- Score Badge -->
+                    <div class="py-4 my-2 bg-army-bg rounded-2xl border-2 border-gold-dark max-w-sm mx-auto shadow-inner">
+                        <div class="text-xs uppercase font-extrabold text-army-light tracking-widest">TỔNG ĐIỂM ĐẠT ĐƯỢC</div>
+                        <div id="resultScore" class="text-5xl font-black text-militaryRed-main my-1 font-mono">80 / 100</div>
+                        <div id="resultCorrectCount" class="text-xs font-bold text-gray-700">Đúng 40/50 câu</div>
+                    </div>
+
+                    <!-- Evaluation Text Box -->
+                    <div id="resultEvaluationBox" class="p-4 rounded-xl font-bold text-base md:text-lg border-2 leading-relaxed">
+                        <!-- Remark inserted dynamically -->
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex flex-wrap justify-center gap-4 pt-2">
+                        <button onclick="showPage('pageHome')" class="army-gradient text-white font-bold px-6 py-2.5 rounded-lg shadow hover:brightness-125 border border-gold-main flex items-center">
+                            <i class="fas fa-home mr-2"></i> Trở về Trang chủ
+                        </button>
+                        <button onclick="scrollToReview()" class="bg-gold-main hover:bg-gold-dark text-army-dark font-bold px-6 py-2.5 rounded-lg shadow transition border border-yellow-300 flex items-center">
+                            <i class="fas fa-search mr-2"></i> Xem chi tiết đáp án
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail Review Section -->
+            <div id="reviewSection" class="bg-white rounded-xl shadow-xl border-2 border-army-main p-6 space-y-6">
+                <div class="army-gradient text-white p-3 rounded-lg font-bold text-lg flex items-center justify-between border-b-2 border-gold-main">
+                    <span><i class="fas fa-list-check text-gold-main mr-2"></i> CHI TIẾT CÁC CÂU HỎI VÀ ĐÁP ÁN</span>
+                    <span class="text-xs font-normal italic text-gray-200">Xanh: Đáp án đúng | Đỏ: Đáp án bạn chọn sai</span>
+                </div>
+
+                <div id="reviewContainer" class="space-y-6">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="army-gradient text-white border-t-2 border-gold-dark py-4 text-center text-xs mt-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-bold uppercase tracking-wider text-gold-main">TIỂU ĐOÀN HỖN HỢP LÝ SƠN - PHÒNG CHÍNH TRỊ</p>
+            <p class="text-gray-300 mt-1">Phần mềm kiểm tra nhận thức chính trị trực tuyến © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxgDvaEogCjmGbAAQO34ZNus9EsIWBEKYwqjwU9wXhyg-l8Bqq9fKtKcq96AmGHsIfX/exec";
+        // NGÂN HÀNG CÂU HỎI ĐẦY ĐỦ 239 CÂU HỎI
+        const QUESTION_BANK = [
+            { id: 1, q: "Theo Luật Lực lượng dự bị động viên năm 2019, Lực lượng dự bị động viên bao gồm những thành phần nào?", options: ["Dân quân tự vệ và lực lượng Công an nhân dân", "Quân nhân dự bị và phương tiện kỹ thuật dự bị", "Bộ đội chủ lực và bộ đội địa phương", "Sĩ quan thường trực và hạ sĩ quan xuất ngũ"], correct: 1 },
+            { id: 2, q: "Quân nhân dự bị bao gồm những đối tượng nào?", options: ["Sĩ quan dự bị, công nhân quốc phòng và dân quân tự vệ", "Hạ sĩ quan, binh sĩ dự bị và lực lượng Công an địa phương", "Tất cả công dân trong độ tuổi lao động tại địa phương", "Sĩ quan dự bị, quân nhân chuyên nghiệp dự bị và hạ sĩ quan, binh sĩ dự bị"], correct: 3 },
+            { id: 3, q: "Cơ quan nào ban hành Luật Lực lượng dự bị động viên năm 2019?", options: ["Bộ Quốc phòng", "Chính phủ", "Quốc hội", "Bộ Tổng Tham mưu"], correct: 2 },
+            { id: 4, q: "Tổng thời gian huấn luyện, diễn tập, kiểm tra sẵn sàng động viên đối với hạ sĩ quan, binh sĩ dự bị hạng một trong đơn vị dự bị động viên là bao nhiêu?", options: ["Không quá 12 tháng", "Không quá 6 tháng", "Đúng 18 tháng", "Không quá 24 tháng"], correct: 0 },
+            { id: 5, q: "Ai là người giao chỉ tiêu xây dựng lực lượng dự bị động viên cho các Bộ, cơ quan ngang Bộ và các tỉnh, thành phố trực thuộc trung ương?", options: ["Bộ trưởng Bộ Quốc phòng", "Chủ tịch nước", "Thủ tướng Chính phủ", "Chủ tịch Quốc hội"], correct: 2 },
+            { id: 6, q: "Trong thời bình, đơn vị dự bị động viên phải duy trì quân số dự phòng là bao nhiêu?", options: ["Từ 5% đến 10%", "Từ 10% đến 15%", "Từ 15% đến 20%", "Từ 20% đến 25%"], correct: 1 },
+            { id: 7, q: "Độ tuổi nam quân nhân chuyên nghiệp dự bị và hạ sĩ quan, binh sĩ dự bị sắp xếp vào đơn vị chiến đấu trong thời bình là không quá bao nhiêu tuổi?", options: ["30 tuổi đối với HSQ-BS, 35 tuổi đối với QNCN", "35 tuổi đối với HSQ-BS, 40 tuổi đối với QNCN", "40 tuổi đối với HSQ-BS, 45 tuổi đối với QNCN", "45 tuổi đối với HSQ-BS, 50 tuổi đối với QNCN"], correct: 1 },
+            { id: 8, q: "Độ tuổi nam quân nhân chuyên nghiệp dự bị và hạ sĩ quan, binh sĩ dự bị sắp xếp vào đơn vị bảo đảm chiến đấu trong thời bình là không quá bao nhiêu tuổi?", options: ["40 tuổi", "45 tuổi", "50 tuổi", "55 tuổi"], correct: 1 },
+            { id: 9, q: "Độ tuổi nữ quân nhân dự bị sắp xếp vào đơn vị bảo đảm chiến đấu trong thời bình là không quá bao nhiêu tuổi?", options: ["35 tuổi", "40 tuổi", "45 tuổi", "50 tuổi"], correct: 1 },
+            { id: 10, q: "Việc đăng ký, quản lý quân nhân dự bị ở cấp xã do cơ quan nào trực tiếp thực hiện?", options: ["Công an xã", "Ủy ban nhân dân xã", "Hội Cựu chiến binh xã", "Ban Chỉ huy quân sự xã"], correct: 3 },
+            { id: 11, q: "Nội dung nào không phải là nguyên tắc xây dựng và huy động lực lượng dự bị động viên?", options: ["Ưu tiên huy động lực lượng dự bị động viên trước khi sử dụng lực lượng thường trực", "Tuân thủ Hiến pháp và pháp luật; đặt dưới sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng", "Kết hợp chặt chẽ giữa phát triển kinh tế - xã hội với tăng cường quốc phòng, an ninh", "Ứng dụng thành tựu khoa học kỹ thuật, công nghệ trong xây dựng, huy động"], correct: 0 },
+            { id: 12, q: "Thứ tự sắp xếp quân nhân chuyên nghiệp dự bị, hạ sĩ quan, binh sĩ dự bị vào đơn vị dự bị động viên được quy định như thế nào?", options: ["Sắp xếp binh sĩ dự bị hạng hai trước, sau đó mới đến hạng một", "Sắp xếp quân nhân chuyên nghiệp dự bị, hạ sĩ quan, binh sĩ dự bị hạng một trước; thiếu mới xếp hạng hai", "Ưu tiên sắp xếp binh sĩ dự bị chưa qua huấn luyện tại ngũ", "Sắp xếp ngẫu nhiên theo danh sách đăng ký tại địa phương"], correct: 1 },
+            { id: 13, q: "Lực lượng dự bị động viên được huy động trong trường hợp nào sau đây?", options: ["Khi thực hiện lệnh tổng động viên hoặc lệnh động viên cục bộ", "Khi thi hành lệnh thiết quân luật", "Để phòng, chống, khắc phục hậu quả thảm họa, thiên tai, dịch bệnh nguy hiểm", "Cả A, B, C đều đúng."], correct: 3 },
+            { id: 14, q: "Nguyên tắc ưu tiên khi sắp xếp quân nhân dự bị vào các loại hình đơn vị là gì?", options: ["Sắp xếp vào đơn vị bộ đội địa phương trước, đơn vị bộ đội chủ lực sau", "Sắp xếp đồng thời vào cả đơn vị chủ lực và địa phương", "Sắp xếp vào các đơn vị biên phòng trước tiên", "Sắp xếp vào đơn vị bộ đội chủ lực trước, đơn vị bộ đội địa phương sau"], correct: 3 },
+            { id: 15, q: "Chính sách “Ngụ binh ư nông” trong lịch sử dân tộc Việt Nam thể hiện tư tưởng nào tương đồng với công tác dự bị động viên ngày nay?", options: ["Tập trung toàn bộ nguồn lực xã hội cho quân đội thường trực", "Gửi binh ở nông, thời bình làm ruộng, thời chiến tập trung đánh giặc, kết hợp kinh tế với quốc phòng", "Bãi bỏ hoàn toàn quân đội thường trực để phát triển nông nghiệp", "Chỉ huy động nhân dân tham gia lao động công ích"], correct: 1 },
+            { id: 16, q: "Trách nhiệm chuyển lệnh gọi nhập ngũ của cấp trên đến từng quân nhân dự bị thuộc về cơ quan, tổ chức nào?", options: ["Ủy ban nhân dân cấp xã, cơ quan, tổ chức có liên quan", "Ban Chỉ huy quân sự cấp huyện", "Bộ Chỉ huy quân sự cấp tỉnh", "Đơn vị tiếp nhận quân"], correct: 0 },
+            { id: 17, q: "Công tác tạo nguồn Sĩ quan dự bị không bao gồm biện pháp nào sau đây?", options: ["Lựa chọn hạ sĩ quan có phẩm chất năng lực tốt trước khi xuất ngũ cho đi đào tạo", "Đào tạo sinh viên tốt nghiệp các trường đại học theo nhu cầu chuyên môn kỹ thuật", "Tuyển chọn trực tiếp công dân chưa học xong trung học cơ sở đi đào tạo sĩ quan", "Tuyển chọn cán bộ chuyên môn kỹ thuật của nền kinh tế quốc dân"], correct: 2 },
+            { id: 18, q: "Khi chưa đến mức tổng động viên hoặc động viên cục bộ, ai có thẩm quyền quyết định huy động quân nhân dự bị, phương tiện kỹ thuật dự bị để phòng chống thảm họa, thiên tai?", options: ["Chủ tịch Ủy ban nhân dân cấp tỉnh", "Bộ trưởng Bộ Quốc phòng", "Chỉ huy trưởng Ban Chỉ huy quân sự cấp huyện", "Trưởng Công an cấp tỉnh"], correct: 0 },
+            { id: 19, q: "Khi sắp xếp phương tiện kỹ thuật dự bị vào đơn vị dự bị động viên, yêu cầu hàng đầu là gì?", options: ["Chọn phương tiện có giá trị kinh tế cao nhất", "Chỉ lấy các phương tiện thuộc sở hữu nhà nước", "Ưu tiên xe ô tô cá nhân dưới 5 chỗ ngồi", "Tính năng đúng yêu cầu sử dụng trong biên chế; thiếu mới xếp phương tiện có tính năng tương tự"], correct: 3 },
+            { id: 20, q: "Việc ứng dụng khoa học kỹ thuật, công nghệ trong xây dựng và huy động lực lượng dự bị động viên nhằm mục đích chính là gì?", options: ["Nâng cao tính chính xác, rút ngắn thời gian huy động và nâng cao khả năng chỉ huy, điều hành", "Thay thế hoàn toàn con người trong tác chiến thời chiến", "Giảm bớt ngân sách chi cho công tác quốc phòng", "Tự động hóa quá trình xuất ngũ của quân nhân"], correct: 0 },
+            { id: 21, q: "Cơ quan nào chịu trách nhiệm thông báo Lệnh huy động đơn vị dự bị động viên của Bộ trưởng Bộ Quốc phòng đến các Bộ, ngành và Ủy ban nhân dân cấp tỉnh?", options: ["Bộ Quốc phòng", "Bộ Tổng Tham mưu", "Tổng cục Chính trị", "Quân khu"], correct: 1 },
+            { id: 22, q: "Việc thực hiện chế độ kiểm tra, phúc tra nắm nguồn động viên được tiến hành như thế nào?", options: ["Chỉ thực hiện khi chuẩn bị xảy ra chiến tranh", "5 năm thực hiện một lần", "Thực hiện thường xuyên, định kỳ theo quy định", "Khi có yêu cầu của riêng chủ phương tiện kỹ thuật"], correct: 2 },
+            { id: 23, q: "Địa điểm tiếp nhận lực lượng dự bị động viên do cơ quan/đơn vị nào xác định?", options: ["Ủy ban nhân dân cấp xã", "Ban Chỉ huy quân sự cấp huyện", "Sở Giao thông vận tải địa phương", "Đơn vị thường trực của Quân đội nhân dân tiếp nhận lực lượng"], correct: 3 },
+            { id: 24, q: "Trong thời bình, việc duy trì lực lượng dự bị động viên hùng hậu giúp ích gì cho nền kinh tế đất nước?", options: ["Tăng thuế thu nhập doanh nghiệp", "Giảm số lượng lao động trong nông nghiệp", "Tăng cường xuất khẩu lao động", "Tiết kiệm ngân sách, giảm chi phí duy trì quân thường trực, tập trung nguồn lực phát triển kinh tế"], correct: 3 },
+            { id: 25, q: "Biện pháp trọng tâm trong huấn luyện lực lượng dự bị động viên là gì?", options: ["Huấn luyện lý thuyết là chính, hạn chế thực hành", "Chỉ huấn luyện thể lực vào thời gian rảnh rỗi", "Tự học tập tại nhà qua tài liệu gửi về", "Coi trọng huấn luyện tập trung sĩ quan, HSQ chỉ huy, NVCMKT; lấy cấp phân đội (đại đội, tiểu đoàn) làm chủ yếu"], correct: 3 },
+            { id: 26, q: "Trách nhiệm trực tiếp của hạ sĩ quan - binh sĩ sau khi hoàn thành nghĩa vụ quân sự tại ngũ trở về địa phương là gì?", options: ["Trong thời hạn quy định, phải đến Ban CHQS cấp xã làm thủ tục đăng ký vào ngạch dự bị động viên", "Tự do đi làm ăn xa mà không cần báo cáo", "Chờ khi có chiến tranh mới đến đăng ký nghĩa vụ", "Nộp lại toàn bộ giấy tờ quân nhân cho chính quyền cấp huyện"], correct: 0 },
+            { id: 27, q: "Sự kiện thực tế nào chứng minh vai trò “phản ứng nhanh tại chỗ” của lực lượng dự bị động viên và dân quân tự vệ trong bảo vệ an ninh trật tự cơ sở được đề cập trong bài giảng?", options: ["Cuộc chiến đấu bảo vệ biên giới Tây Nam năm 1978", "Đợt diễn tập cứu hộ cứu nạn tại Hải Phòng năm 2020", "Chiến dịch Đường 9 - Nam Lào năm 1971", "Vụ khủng bố tại huyện Cư Kuin, tỉnh Đắk Lắk (tháng 6/2023)"], correct: 3 },
+            { id: 28, q: "Trường hợp quân nhân dự bị chuyển nơi cư trú hoặc nơi làm việc thì phải làm thủ tục gì đối với công tác đăng ký dự bị động viên?", options: ["Không cần làm thủ tục nếu chuyển trong cùng một tỉnh", "Thực hiện đăng ký di chuyển và đăng ký đến theo đúng quy định của pháp luật", "Xin xuất ngũ hoàn toàn khỏi ngạch dự bị", "Tự thay đổi thông tin trên hệ thống cá nhân mà không cần báo Ban CHQS xã"], correct: 1 },
+            { id: 29, q: "Việc kết hợp giữa địa bàn tuyển quân với địa bàn động viên (“gần, gọn địa bàn”) đem lại lợi ích trực tiếp nào?", options: ["Rút ngắn thời gian vận chuyển hàng hóa xuất nhập khẩu", "Tăng nguồn thu ngân sách cho địa phương", "Giảm nghĩa vụ lao động công ích của công dân", "Tạo thuận lợi cho quản lý, tập trung, vận chuyển và bàn giao lực lượng nhanh chóng khi có lệnh"], correct: 3 },
+            { id: 30, q: "Nhận định nào sau đây thể hiện đúng nhất vai trò của lực lượng dự bị động viên trong chiến tranh bảo vệ Tổ quốc?", options: ["Thay thế hoàn toàn vai trò tác chiến của quân đội thường trực", "Chỉ làm nhiệm vụ hậu phương, không tham gia chiến đấu trực tiếp", "Chỉ đảm nhiệm công tác khắc phục hậu quả thiên tai", "Là nguồn sức mạnh bổ sung kịp thời, tạo bước ngoặt và sự thay đổi tương quan lực lượng có lợi cho ta"], correct: 3 },
+            { id: 31, q: "Dựa vào nội dung bài học, ví dụ về các tuyến đường cao tốc Bắc - Nam hay đường tuần tra biên giới chịu được tải trọng xe tăng và có đoạn phẳng làm đường băng dã chiến thể hiện nguyên tắc nào?", options: ["Nguyên tắc kết hợp chặt chẽ giữa phát triển kinh tế - xã hội với tăng cường quốc phòng, an ninh", "Nguyên tắc tuân thủ Hiến pháp và pháp luật", "Nguyên tắc huy động sức mạnh tổng hợp của toàn dân", "Nguyên tắc xây dựng lực lượng dự bị vững mạnh về chính trị"], correct: 0 },
+            { id: 32, q: "Khi xảy ra thiên tai, lũ quét cô lập địa bàn (như tại Kỳ Sơn - Nghệ An hay Quảng Trị), vai trò vượt trội của lực lượng quân nhân dự bị tại chỗ là gì?", options: ["Chờ lực lượng cứu hộ cấp Bộ đến chỉ huy mới hành động", "Nắm rõ địa hình, có bản lĩnh và kỹ năng quân sự, chủ động ứng cứu nhân dân ngay tại chỗ", "Di tản bản thân đến khu vực an toàn nhất", "Chỉ tập trung bảo vệ tài sản của các cơ quan nhà nước"], correct: 1 },
+            { id: 33, q: "Trong công tác tổ chức biên chế, khi quân nhân dự bị có chuyên nghiệp quân sự (CNQS) đúng bị thiếu thì phương án giải quyết là gì?", options: ["Để trống vị trí đó không sắp xếp", "Tuyển chọn công dân chưa qua nghĩa vụ quân sự thay thế ngay lập tức", "Đưa quân nhân quá tuổi quy định vào biên chế", "Sắp xếp quân nhân dự bị có chuyên nghiệp quân sự gần đúng với chức danh biên chế"], correct: 3 },
+            { id: 34, q: "Để bảo đảm quân nhân dự bị yên tâm thực hiện nhiệm vụ tập trung huấn luyện, kiểm tra sẵn sàng chiến đấu, cơ quan nhà nước và địa phương phải thực hiện tốt khâu nào?", options: ["Yêu cầu doanh nghiệp cắt hợp đồng lao động của quân nhân dự bị", "Miễn toàn bộ các khoản thuế gia đình cho quân nhân dự bị suốt đời", "Cấp đất ở miễn phí cho tất cả quân nhân dự bị", "Chi trả đầy đủ, kịp thời các chế độ phụ cấp, tiền lương, bảo hiểm và chính sách hậu phương quân đội"], correct: 3 },
+            { id: 35, q: "Ý thức trách nhiệm của mỗi hạ sĩ quan - binh sĩ đang tại ngũ đối với nhiệm vụ xây dựng lực lượng dự bị động viên thể hiện ở điểm nào?", options: ["Tích cực học tập, rèn luyện nắm vững kỹ chiến thuật, chấp hành kỷ luật tại đơn vị", "Tìm hiểu các quy định của Luật Lực lượng dự bị động viên để thực hiện đúng khi xuất ngũ", "Sẵn sàng nhận nhiệm vụ chuyển sang ngạch dự bị và tham gia huấn luyện định kỳ", "Cả A, B, C đều đúng."], correct: 3 },
+            { id: 36, q: "Phân tích bài học lịch sử giai đoạn 1968 - 1972 trong kháng chiến chống Mỹ, việc liên tục động viên hàng vạn quân nhân dự bị, dân quân tự vệ miền Bắc vào chiến trường miền Nam chứng minh giá trị cốt lõi nào của công tác dự bị động viên?", options: ["Là “mạch máu” bổ sung sinh lực kịp thời, giúp quân đội duy trì sức chiến đấu liên tục để giành chiến thắng", "Là biện pháp duy nhất để mở rộng địa giới hành chính", "Giúp thay thế hoàn toàn vai trò của vũ khí hiện đại", "Nhằm giảm bớt áp lực lương thực tại hậu phương miền Bắc"], correct: 0 },
+            { id: 37, q: "Trong điều kiện kinh tế thị trường và hội nhập quốc tế hiện nay, thách thức lớn nhất đối với công tác quản lý nguồn quân nhân dự bị tại địa phương là gì?", options: ["Lực lượng lao động biến động thường xuyên, đi làm ăn xa tại các công ty tư nhân, doanh nghiệp có vốn đầu tư nước ngoài", "Sự thiếu hụt về các loại trang phục quân trang", "Quân nhân dự bị không có khả năng sử dụng thiết bị điện tử", "Sự gia tăng quá nhanh số lượng sĩ quan dự bị"], correct: 0 },
+            { id: 38, q: "Mối quan hệ giữa “Xây dựng lực lượng dự bị động viên vững mạnh về chính trị, tư tưởng” và “Nâng cao trình độ kỹ - chiến thuật” được xác định như thế nào?", options: ["Trình độ kỹ - chiến thuật là quyết định nhất, chính trị tư tưởng chỉ là phụ trợ", "Hai yếu tố này tách rời nhau, không có mối liên hệ trong huấn luyện", "Xây dựng vững mạnh về chính trị làm cơ sở, nền tảng để nâng cao chất lượng tổng hợp và sức mạnh chiến đấu", "Chỉ tập trung xây dựng chính trị đối với sĩ quan, binh sĩ chỉ cần rèn luyện thể lực"], correct: 2 },
+            { id: 39, q: "Khi các thế lực thù địch đẩy mạnh chiến lược “Diễn biến hòa bình”, thúc đẩy “tự diễn biến”, “tự chuyển hóa” và “phi chính trị hóa” lực lượng vũ trang, vai trò của lực lượng dự bị động viên ở cơ sở càng trở nên quan trọng vì lý do nào sau đây?", options: ["Họ là lực lượng nòng cốt tại chỗ, trực tiếp sinh sống cùng nhân dân, giúp giữ vững thế trận an ninh nhân dân và đập tan âm mưu chống phá từ cơ sở", "Họ có thẩm quyền thay thế các cơ quan tư pháp địa phương", "Họ được trang bị các loại vũ khí hạng nặng để răn đe nhân dân", "Họ không chịu sự quản lý của Luật Nghĩa vụ quân sự"], correct: 0 },
+            { id: 40, q: "Quan điểm “Xây dựng lực lượng dự bị động viên là nhiệm vụ chính trị thường xuyên của toàn Đảng, toàn dân và toàn quân” đòi hỏi sự phối hợp hoạt động như thế nào trong hệ thống chính trị?", options: ["Chỉ giao toàn bộ trách nhiệm cho Bộ Quốc phòng và cơ quan quân sự các cấp", "Do các doanh nghiệp tư nhân tự tổ chức và điều hành kinh phí", "Đặt dưới sự lãnh đạo của Đảng, sự điều hành của Nhà nước, cơ quan quân sự làm tham mưu và sự tham gia tích cực của Mặt trận Tổ quốc, các đoàn thể, nhân dân", "Chỉ tập trung thực hiện khi địa phương công bố tình trạng khẩn cấp"], correct: 2 },
+            { id: 41, q: "“Diễn biến hòa bình” được hiểu là gì?", options: ["Chiến lược sử dụng chiến tranh vũ trang để lật đổ chính quyền.", "Chiến lược nhằm lật đổ chế độ chính trị - xã hội của các nước tiến bộ, trước hết là các nước XHCN, chủ yếu bằng biện pháp phi quân sự.", "Chính sách hợp tác kinh tế giữa các quốc gia.", "Hoạt động ngoại giao nhằm giải quyết tranh chấp quốc tế."], correct: 1 },
+            { id: 42, q: "Đồng chí cho biết bản chất của “diễn biến hòa bình” là gì?", options: ["Chiến lược phát triển kinh tế của các nước tư bản.", "Hoạt động quân sự nhằm mở rộng lãnh thổ.", "Hoạt động giao lưu văn hóa giữa các quốc gia.", "Chiến lược chống chủ nghĩa xã hội bằng các biện pháp phi vũ trang là chủ yếu."], correct: 3 },
+            { id: 43, q: "Mục tiêu cơ bản của của các thế lực thù địch thực hiện “diễn biến hòa bình” đối với Việt Nam là gì?", options: ["Thúc đẩy Việt Nam hội nhập quốc tế.", "Phát triển kinh tế tư nhân.", "Xóa bỏ vai trò lãnh đạo của Đảng Cộng sản Việt Nam, xóa bỏ CNXH và độc lập dân tộc.", "Tăng cường quan hệ hữu nghị với Việt Nam."], correct: 2 },
+            { id: 44, q: "Một trong những mục tiêu của “diễn biến hòa bình” trên lĩnh vực tư tưởng là?", options: ["Củng cố chủ nghĩa Mác - Lênin.", "Xóa bỏ chủ nghĩa Mác - Lênin, thay thế bằng hệ tư tưởng tư sản.", "Tăng cường giáo dục truyền thống dân tộc.", "Phát triển văn hóa Việt Nam."], correct: 1 },
+            { id: 45, q: "Một trong những mục tiêu chính trị của các thế lực thù địch là gì?", options: ["Thực hiện “đa nguyên chính trị”, “đa đảng đối lập”.", "Tăng cường vai trò lãnh đạo của Đảng Cộng sản.", "Củng cố khối đại đoàn kết toàn dân.", "Nâng cao hiệu quả quản lý nhà nước."], correct: 0 },
+            { id: 46, q: "Các thế lực thù địch thường lợi dụng vấn đề nào để gây mất ổn định chính trị - xã hội?", options: ["Dân chủ, nhân quyền, dân tộc, tôn giáo.", "Khoa học và công nghệ.", "Giáo dục thể chất.", "Phát triển thể thao."], correct: 0 },
+            { id: 47, q: "“Tự diễn biến”, “tự chuyển hóa” được xem là gì?", options: ["Một phương thức củng cố tổ chức.", "Một nguy cơ chuyển hóa từ bên trong.", "Một hình thức phát triển kinh tế.", "Một hoạt động đối ngoại."], correct: 1 },
+            { id: 48, q: "Các thế lực thù địch dung thủ đoạn chống phá trên lĩnh vực kinh tế đối với nước ta nhằm mục đích gì?", options: ["Làm cho nền kinh tế phát triển độc lập, tự chủ hơn.", "Làm suy yếu, chi phối và chuyển hóa nền kinh tế theo quỹ đạo kinh tế thị trường tư bản chủ nghĩa.", "Tăng cường kinh tế tập thể.", "Tăng cường vai trò quản lý của Nhà nước."], correct: 1 },
+            { id: 49, q: "Đâu là thủ đoạn chống phá của các thế lực thù địch trên lĩnh vực văn hóa đối với Việt Nam?", options: ["Bảo tồn và phát huy bản sắc văn hóa dân tộc.", "Phát triển văn hóa truyền thống.", "Tăng cường giáo dục đạo đức.", "Du nhập lối sống thực dụng, vụ lợi cá nhân, làm phai nhạt các giá trị truyền thống."], correct: 3 },
+            { id: 50, q: "“Phi chính trị hóa” quân đội nhằm mục đích chủ yếu nào?", options: ["Tăng cường sức mạnh chính trị của quân đội.", "Nâng cao trình độ chiến đấu của quân đội.", "Tách quân đội khỏi sự lãnh đạo của Đảng, làm suy yếu và vô hiệu hóa lực lượng vũ trang.", "Củng cố mối quan hệ quân dân."], correct: 2 },
+            { id: 51, q: "“Mũi đột phá” là nội dung trọng yếu trong chiến lược “diễn biến hòa bình” trên lĩnh vực nào?", options: ["Tư tưởng, văn hóa.", "Thể thao.", "Du lịch.", "Giáo dục thể chất."], correct: 0 },
+            { id: 52, q: "Trên lĩnh vực chính trị, các thế lực thù địch tập trung vào thủ đoạn nào?", options: ["Củng cố khối đại đoàn kết dân tộc.", "Phát triển hệ thống chính trị.", "Tăng cường sự đồng thuận xã hội.", "Xóa bỏ vai trò lãnh đạo của Đảng, thúc đẩy “đa nguyên chính trị”, “đa đảng đối lập”."], correct: 3 },
+            { id: 53, q: "Đâu là một trong những phương thức xử lý bạo loạn lật đỗ?", options: ["Kết hợp chặt chẽ giữa đấu tranh chính trị, quân sự, quốc phòng, an ninh, kinh tế, hành chính và ngoại giao.", "Chỉ kết hợp các biện pháp quân sự, quốc phòng và an ninh để xử lý tình huống.", "Tập trung sử dụng các biện pháp chính trị và kinh tế để giải quyết tình huống.", "Chủ yếu sử dụng các biện pháp tuyên truyền để ổn định tình hình."], correct: 0 },
+            { id: 54, q: "Đâu là thủ đoạn được các thế lực thù địch thực hiện trên lĩnh vực quốc phòng, an ninh đối với nước ta?", options: ["Tăng cường sức mạnh quốc phòng toàn dân.", "Phủ nhận, xuyên tạc đường lối quốc phòng toàn dân và làm suy yếu lực lượng vũ trang.", "Xây dựng thế trận lòng dân.", "Tăng cường đoàn kết quân dân."], correct: 1 },
+            { id: 55, q: "Trên lĩnh vực đối ngoại, các thế lực thù địch đã tìm cách?", options: ["Tăng cường vị thế của Việt Nam trên trường quốc tế.", "Thúc đẩy hợp tác bình đẳng", "Củng cố quan hệ hữu nghị giữa các nước.", "Gây chia rẽ Việt Nam với các nước, hạ thấp vị thế và uy tín của Việt Nam."], correct: 3 },
+            { id: 56, q: "Việc lợi dụng mạng xã hội để tung tin giả, tin sai sự thật nhằm mục đích chủ yếu nào?", options: ["Cung cấp thông tin chính xác cho nhân dân.", "Gây hoang mang, chia rẽ, làm suy giảm niềm tin và gây mất ổn định xã hội.", "Tăng cường giáo dục pháp luật.", "Tuyên truyền thành tựu phát triển đất nước."], correct: 1 },
+            { id: 57, q: "Bạo loạn là gì?", options: ["Hành động chống phá bằng bạo lực, có tổ chức nhằm gây rối loạn hoặc lật đổ chính quyền.", "Hoạt động biểu diễn tập trung đông người.", "Hoạt động khiếu nại theo quy định pháp luật.", "Hoạt động giao lưu xã hội."], correct: 0 },
+            { id: 58, q: "Chủ thể trực tiếp tiến hành bạo loạn lật đổ ở Việt Nam là gì?", options: ["Các tổ chức xã hội hợp pháp.", "Các tổ chức kinh tế.", "Người dân tham gia hoạt động bình thường.", "Các thế lực thù địch trong nước, các thế lực thù địch trong nước trực tiếp tiến hành dưới sự chỉ đạo của các thế lực phản động nước ngoài"], correct: 3 },
+            { id: 59, q: "Bạo loạn lật đổ có thể diễn ra dưới hình thức nào?", options: ["Chỉ có bạo loạn chính trị.", "Chỉ có bạo loạn vũ trang.", "Bạo loạn chính trị, bạo loạn vũ trang hoặc kết hợp cả hai.", "Chỉ có đấu tranh ngoại giao."], correct: 2 },
+            { id: 60, q: "Điểm khác biệt cơ bản giữa gây rối và bạo loạn lật đổ là gì?", options: ["Gây rối luôn có quy mô lớn hơn bạo loạn.", "Bạo loạn lật đổ có tổ chức, sử dụng bạo lực nhằm gây rối loạn hoặc lật đổ chính quyền.", "Gây rối luôn có sự chỉ đạo từ nước ngoài.", "Hai khái niệm hoàn toàn giống nhau."], correct: 1 },
+            { id: 61, q: "Quy mô của bạo loạn lật đổ có thể như thế nào?", options: ["Chỉ xảy ra ở cấp địa phương.", "Chỉ xảy ra tại các thành phố lớn.", "Từ quy mô nhỏ đến vừa và lớn, từ một nơi, một khu vực lan ra nhiều nơi, nhiều khu vực khác nhau.", "Chỉ xảy ra ở vùng biên giới."], correct: 2 },
+            { id: 62, q: "Một trong những điều kiện có thể làm gia tăng nguy cơ bạo loạn lật đổ là gì?", options: ["Chính trị - xã hội ổn định.", "Nhân dân có niềm tin cao vào chính quyền.", "Kinh tế - xã hội mất ổn định; nhân dân mất niềm tin vào chính quyền, chế độ", "Khối đại đoàn kết toàn dân được củng cố."], correct: 2 },
+            { id: 63, q: "Đâu là một trong những kịch bản bạo loạn lật đổ ở Việt Nam?", options: ["Công khai tuyên chiến với Nhà nước.", "Bí mật tạo dựng “ngọn cờ chỉ đạo”, hình thành lực lượng đối lập.", "Tăng cường hoạt động ngoại giao.", "Tổ chức các hoạt động kinh tế."], correct: 1 },
+            { id: 64, q: "Một thủ đoạn thường được các thế lực thù địch sử dụng để phát triển bạo loạn là gì?", options: ["Kích động, lôi kéo, tập hợp quần chúng từ những vụ việc nhạy cảm, phức tạp.", "Tăng cường tuyên truyền pháp luật.", "Giải quyết kịp thời các bức xúc của nhân dân.", "Đối thoại để giải quyết mâu thuẫn."], correct: 0 },
+            { id: 65, q: "Một quan điểm chỉ đạo của Đảng trong đấu tranh phòng, chống “diễn biến hòa bình”, bạo loạn lật đổ là?", options: ["Từ bỏ mục tiêu độc lập dân tộc và CNXH.", "Kiên định vận dụng và phát triển sáng tạo chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh.", "Chỉ tập trung vào lĩnh vực quân sự.", "Không cần quan tâm đến công tác tư tưởng."], correct: 1 },
+            { id: 66, q: "Để thực hiện tốt phòng, chống “diễn biến hòa bình”, bạo loạn lật đổ Việt Nam cần phát huy sức mạnh gì?", options: ["Sức mạnh của riêng lực lượng vũ trang.", "Sức mạnh của riêng cơ quan ngoại giao.", "Sức mạnh tổng hợp của cả hệ thống chính trị và toàn dân.", "Sức mạnh của riêng lực lượng công an."], correct: 2 },
+            { id: 67, q: "Thực hiện phòng, chống “diễn biến hòa bình”, bạo loạn lật đổ phải được đặt dưới sự lãnh đạo nào?", options: ["Của các tổ chức xã hội.", "Của Nhà nước.", "Của Đảng Cộng sản Việt Nam.", "Của các tổ chức quốc tế."], correct: 2 },
+            { id: 68, q: "Một phương châm chỉ đạo quan trọng làm thất bại âm mưu, thủ đoạn “diễn biến hòa bình”, bạo loạn lật đổ của các thế lực thù địch là?", options: ["Chỉ “chống”, không cần “xây”.", "Kết hợp chặt chẽ giữa “xây” và “chống”, lấy xây dựng vững mạnh là chính.", "Chỉ xử lý khi bạo loạn đã xảy ra.", "Không cần chủ động phòng ngừa."], correct: 1 },
+            { id: 69, q: "Đâu là nguyên tắc xử lý bạo loạn lật đổ?", options: ["Giữ vững quan điểm, lập trường, linh hoạt về biện pháp.", "Phân hóa, cô lập bọn đầu sỏ ngoan cố.", "Kiên quyết tiêu diệt bọn ác ôn, ngoan cố.", "Cả 3 đáp án."], correct: 3 },
+            { id: 70, q: "Khi bạo loạn xảy ra, yêu cầu đặt ra là gì?", options: ["Để kéo dài nhằm theo dõi tình hình.", "Xử lý chậm để tránh tác động dư luận.", "Phát huy sức mạnh tổng hợp, xử lý kiên quyết, nhanh chóng, không để lan rộng, kéo dài.", "Chỉ sử dụng biện pháp ngoại giao."], correct: 2 },
+            { id: 71, q: "Một yêu cầu đối với hạ sĩ quan - binh sĩ trong đấu tranh làm thất bại âm mưu, thủ đoạn “diễn biến hòa bình”, bạo loạn lật đổ của các thế lực thù địch là gì?", options: ["Luôn tỉnh táo trước những luận điệu xuyên tạc chống phá của các thế lực thù địch.", "Không cần quan tâm đến thông tin trên mạng.", "Tin ngay mọi thông tin trên mạng xã hội.", "Không cần học tập chính trị."], correct: 0 },
+            { id: 72, q: "Để tăng cường khả năng “tự đề kháng”, “tự miễn dịch” trước quan điểm sai trái toàn Đảng, toàn dân và toàn quân ta cần phải làm gì?", options: ["Hạn chế tiếp cận thông tin.", "Tránh đối thoại với nhân dân.", "Không quan tâm đến dư luận xã hội.", "Đẩy mạnh công tác tuyên truyền, giáo dục và nâng cao nhận thức."], correct: 3 },
+            { id: 73, q: "Một yêu cầu quan trọng trong xử lý bạo loạn lật đổ là gì?", options: ["Xa rời nhân dân, tránh làm ảnh hưởng đến nhân dân.", "Phải dựa vào dân, giữ dân, giành dân, bảo vệ dân, kết hợp tiêu diệt địch, trừng trị bọn đầu sỏ.", "Không tuyên truyền, vận động nhân dân.", "Chỉ tập trung vào mục tiêu quân sự."], correct: 1 },
+            { id: 74, q: "Trách nhiệm quan trọng của hạ sĩ quan - binh sĩ trong đấu tranh phòng, chống “diễn biến hòa bình” là gì?", options: ["Tích cực học tập nâng cao nhận thức về chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh, đường lối, quan điểm của Đảng, chính sách và pháp luật của Nhà nước", "Không tham gia các hoạt động chính trị - xã hội.", "Chỉ thực hiện nhiệm vụ khi có chiến tranh.", "Không cần quan tâm đến âm mưu, thủ đoạn chống phá của các thế lực thù địch."], correct: 0 },
+            { id: 75, q: "Vì sao nói thực hành dân chủ xã hội chủ nghĩa có vai trò đặc biệt quan trọng trong việc củng cố niềm tin của nhân dân đối với Đảng, Nhà nước và chế độ xã hội chủ nghĩa?", options: ["Vì đây là sự kế thừa và phát huy truyền thống đại đoàn kết toàn dân tộc, bảo đảm sự thống nhất cao về ý chí và hành động", "Vì đây là nhân tố trực tiếp góp phần tăng cường khối đại đoàn kết toàn dân tộc, xây dựng “thế trận lòng dân” vững chắc.", "Vì làm giảm trách nhiệm của Nhà nước.", "Vì không liên quan đến ổn định chính trị."], correct: 1 },
+            { id: 76, q: "Trong thực hành dân chủ xã hội chủ nghĩa, phát huy mạnh mẽ quyền làm chủ của nhân dân việc mở rộng dân chủ phải đi đôi với điều gì?", options: ["Buông lỏng kỷ luật.", "Không cần pháp luật.", "Giảm trách nhiệm công dân.", "Tăng cường kỷ luật, kỷ cương."], correct: 3 },
+            { id: 77, q: "Điền từ còn thiếu vào chỗ trống “Xây dựng Đảng trong sạch, vững mạnh là nhiệm vụ ……………..., có ý nghĩa quyết định đối với sự nghiệp cách mạng của Đảng và dân tộc”.", options: ["Thứ yếu.", "Tạm thời.", "“Then chốt”.", "Chỉ thực hiện trong thời kỳ chiến tranh."], correct: 2 },
+            { id: 78, q: "Một nội dung quan trọng trong xây dựng Đảng là:", options: ["Tăng chủ nghĩa cá nhân.", "Hạn chế sự giám sát.", "Giảm tính chiến đấu của tổ chức đảng.", "Đẩy mạnh tự phê bình và phê bình."], correct: 3 },
+            { id: 79, q: "Để làm tốt công tác phòng, chống “tự diễn biến”, “tự chuyển hóa” trong nội bộ, chúng ta cần làm gì?", options: ["Chỉ “chống”.", "Chỉ “xây”.", "Kết hợp chặt chẽ giữa “xây” và “chống”, lấy “xây” làm cơ sở.", "Không cần giáo dục chính trị."], correct: 2 },
+            { id: 80, q: "Tư tưởng chỉ đạo khi có bạo loạn lật đổ xảy ra là gì?", options: ["Chậm xử lý để tránh phức tạp.", "kiên quyết, linh hoạt, đúng đối tượng, không để lan rộng kéo dài", "Chỉ sử dụng biện pháp quân sự.", "Không cần phân hóa đối tượng."], correct: 1 },
+            { id: 81, q: "Đồng chí cho biết Tình hình thế giới và khu vực trong công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020 có thuận lợi gì?", options: ["Hòa bình, dân chủ, hợp tác và phát triển vẫn là xu thế lớn; toàn cầu hóa và hội nhập kinh tế quốc tế tiếp tục tiến triển.", "Hòa bình, hợp tác và phát triển vẫn là xu thế lớn; toàn cầu hóa và hội nhập kinh tế quốc tế tiếp tục tiến triển.", "Dân chủ, hợp tác, độc lập dân tộc và phát triển vẫn là xu thế lớn; toàn cầu hóa và hội nhập kinh tế quốc tế tiếp tục tiến triển.", "Hợp tác, hòa bình, dân chủ và phát triển vẫn là xu thế lớn; toàn cầu hóa và hội nhập kinh tế quốc tế tiếp tục tiến triển."], correct: 1 },
+            { id: 82, q: "Đồng chí cho biết tình hình thế giới và khu vực trong công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020 có thuận lợi gì?", options: ["Toàn cầu hóa được đẩy mạnh; cục diện thế giới tiếp tục biến đổi theo xu hướng đa cực, đa trung tâm; các nước lớn vẫn hợp tác, thỏa hiệp.", "Hợp tác và phát triển vẫn là xu thế lớn.", "Cục diện thế giới tiếp tục biến đổi theo xu hướng đa cực, đa trung tâm; các nước lớn vẫn hợp tác, thỏa hiệp.", "Hợp tác, hòa bình vẫn là xu thế lớn."], correct: 2 },
+            { id: 83, q: "Đồng chí cho biết tình hình thế giới và khu vực trong công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020 có thuận lợi gì?", options: ["Cuộc cách mạng công nghiệp lần thứ tư, nhất là công nghệ số phát triển mạnh mẽ.", "Cuộc cách mạng công nghiệp lần thứ tư, nhất là công nghệ số phát triển mạnh mẽ, tạo đột phá trên nhiều lĩnh vực.", "Cuộc cách mạng công nghệ thông tin phát triển mạnh mẽ, nhất là công nghệ số phát triển mạnh mẽ, tạo đột phá trên nhiều lĩnh vực, tạo ra thời cơ và thách thức đối với mọi quốc gia - dân tộc", "Cuộc cách mạng công nghiệp lần thứ tư, nhất là công nghệ số phát triển mạnh mẽ, tạo đột phá trên nhiều lĩnh vực, tạo ra thời cơ và thách thức đối với mọi quốc gia - dân tộc."], correct: 3 },
+            { id: 84, q: "Đồng chí cho biết tình hình thế giới và khu vực trong công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020 có thuận lợi gì?", options: ["Khu vực Đông Âu tiếp tục là trung tâm phát triển năng động", "Khu vực châu Á - Thái Bình Dương, trong đó Đông Nam Á có vị trí chiến lược quan trọng; ASEAN tiếp tục là trung tâm phát triển năng động, có vai trò thúc đẩy hợp tác kinh tế trong khu vực.", "Khu vực châu Á - Thái Bình Dương, trong đó Đông Nam Á có vị trí chiến lược quan trọng; ASEAN có vai trò quan trọng trong duy trì hòa bình, ổn định, thúc đẩy hợp tác khu vực.", "Khu vực Châu Phi tiếp tục là trung tâm phát triển năng động."], correct: 1 },
+            { id: 85, q: "Đồng chí cho biết những khó khăn, thách thức trên thế giới và khu vực ảnh hưởng đến công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020?", options: ["Khủng bố, chiến tranh cục bộ, chiến tranh mạng, chiến tranh giữa các nước lớn diễn ra gay gắt ở nhiều khu vực.", "Khủng bố, chiến tranh cục bộ, chiến tranh mạng... tiếp tục diễn ra gay gắt ở nhiều khu vực.", "Kinh tế thế giới lâm vào khủng hoảng, suy thoái nghiêm trọng và còn tiếp tục kéo dài do tác động của dịch bệnh.", "Kinh tế thế giới lâm vào khủng hoảng, suy thoái nghiêm trọng và có thể còn kéo dài do tác động của đại dịch Covid-19."], correct: 3 },
+            { id: 86, q: "Đồng chí cho biết những khó khăn, thách thức trên thế giới và khu vực ảnh hưởng đến công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020?", options: ["Các nước đang phát triển, nhất là các nước nhỏ đứng trước nhiều khó khăn, thách thức mới.", "Các nước đang phát triển, nhất là các nước nhỏ đứng trước những thuận lợi và thời cơ mới.", "Tệ nạn xã hội phát triển mạnh sau đại dịch Covid-19.", "Tệ nạn xã hội phát triển mạnh."], correct: 0 },
+            { id: 87, q: "Đồng chí cho biết những thuận lợi trong nước tác động đến công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020?", options: ["Nền kinh tế thị trường, định hướng xã hội chủ nghĩa tiếp tục phát triển.", "Kinh tế vĩ mô ổn định, tốc độ tăng trưởng duy trì ở mức cao.", "Chất lượng tăng trưởng được cải thiện, quy mô và tiềm lực nền kinh tế tăng lên.", "Cả A, B, C đều đúng."], correct: 3 },
+            { id: 88, q: "Đồng chí cho biết thuận lợi trong nước tác động đến công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020?", options: ["Vị thế, uy tín quốc tế của nước ta tiếp tục được duy trì ở mức cao, có quan hệ hợp tác tốt trên một số lĩnh vực.", "Thế và lực, sức mạnh tổng hợp quốc gia, uy tín quốc tế của đất nước ngày càng được nâng cao, tạo ra những tiền đề quan trọng.", "Dân trí ngày càng phát triển.", "Không còn hộ nghèo."], correct: 1 },
+            { id: 89, q: "Đồng chí cho biết những khó khăn, thách thức trong nước ảnh hưởng đến công tác đối ngoại của Đảng, Nhà nước ta giai đoạn 2016 - 2020?", options: ["Nền kinh tế chưa bền vững, còn nhiều hạn chế, yếu kém, đứng trước nhiều khó khăn, thách thức mới do tác động của đại dịch Covid-19 và khủng hoảng kinh tế toàn cầu gây ra.", "Bốn nguy cơ mà Đảng ta chỉ ra vẫn tồn tại, có mặt còn gay gắt hơn.", "Năm năm tới, Việt Nam hội nhập quốc tế sâu, rộng hơn sẽ phải thực hiện đầy đủ, hiệu quả các cam kết khi tham gia các hiệp định thương mại tự do thế hệ mới.", "Cả A, B, C đều đúng."], correct: 3 },
+            { id: 90, q: "Đồng chí cho biết những thành tựu đạt được trong công tác đối ngoại của Đảng, Nhà nước ta (2016 - 2020)?", options: ["Quan hệ đối ngoại và hội nhập quốc tế tiếp tục mở rộng và đi vào chiều sâu, tạo khuôn khổ quan hệ ổn định và bền vững với các đối tác.", "Đối ngoại Đảng, ngoại giao nhà nước, đối ngoại nhân dân được triển khai đồng bộ và toàn diện.", "Tiếp tục hoàn thiện và thực thi có hiệu quả cơ chế quản lý thống nhất các hoạt động đối ngoại; tăng cường công tác bảo hộ công dân và công tác người Việt Nam ở nước ngoài.", "Cả A, B, C đều đúng."], correct: 3 },
+            { id: 91, q: "Đồng chí cho biết mục tiêu công tác đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["Lợi ích quốc gia là số 1.", "Lợi ích quốc gia và lợi ích dân tộc là thống nhất.", "Lợi ích dân tộc là trên hết.", "Lợi ích quốc gia- dân tộc là đầu tiên."], correct: 2 },
+            { id: 92, q: "Đồng chí cho biết có bao nhiêu quan điểm chỉ đạo công tác đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["03 quan điểm.", "04 quan điểm.", "05 quan điểm.", "06 quan điểm."], correct: 2 },
+            { id: 93, q: "Đồng chí cho biết một trong những phương châm chỉ đạo công tác đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["Thực hiện nhất quán đường lối đối ngoại độc lập, tự chủ, hòa bình.", "Thực hiện nhất quán đường lối đối ngoại độc lập, tự chủ.", "Thực hiện nhất quán đường lối đối ngoại độc lập, tự chủ, hợp tác.", "Thực hiện nhất quán đường lối đối ngoại độc lập, tự chủ, hòa bình, hữu nghị, hợp tác và phát triển."], correct: 3 },
+            { id: 94, q: "Đồng chí cho biết có bao nhiêu phương châm chỉ đạo công tác đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["01 phương châm.", "02 phương châm.", "03 phương châm.", "04 phương châm."], correct: 1 },
+            { id: 95, q: "Đồng chí cho biết có bao nhiêu nhiệm vụ và giải pháp công tác đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["03 nhiệm vụ và giải pháp.", "04 nhiệm vụ và giải pháp.", "05 nhiệm vụ và giải pháp.", "06 nhiệm vụ và giải pháp."], correct: 3 },
+            { id: 96, q: "Đồng chí cho biết nhiệm vụ và giải pháp công tác đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["Đẩy mạnh đối ngoại song phương và nâng tầm đối ngoại đa phương.", "Đẩy mạnh hiệu quả các hoạt động xúc tiến thương mại.", "Nâng cao chất lượng các sản phẩm xuất khẩu.", "Nâng cao chất lượng cung cấp các dịch vụ du lịch."], correct: 0 },
+            { id: 97, q: "Đồng chí cho biết nhiệm vụ và giải pháp công tác đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["Tăng cường công tác dự báo, tham mưu chiến lược về đối ngoại, không để bị động, bất ngờ.", "Tăng cường công tác nghiên cứu, dự báo, tham mưu chiến lược về đối ngoại, không để bị động, bất ngờ.", "Tăng cường công tác nghiên cứu, tham mưu chiến lược về đối ngoại, không để bị động, bất ngờ.", "Tăng cường công tác nghiên cứu, dự báo, tham mưu chiến lược về đối ngoại, không để bị động, bất ngờ trước một số tình huống."], correct: 1 },
+            { id: 98, q: "Đồng chí cho biết công tác đối ngoại quốc phòng trong tình hình mới có bao nhiêu nhiệm vụ?", options: ["05 nhiệm vụ.", "06 nhiệm vụ.", "07 nhiệm vụ.", "08 nhiệm vụ."], correct: 2 },
+            { id: 99, q: "Đồng chí cho biết nhiệm vụ công tác đối ngoại quốc phòng trong tình hình mới?", options: ["Đẩy mạnh các hoạt động đối ngoại quốc phòng song phương.", "Đẩy mạnh các hoạt động đối ngoại quốc phòng song phương và đa phương theo hướng: chủ động, tiết kiệm, thiết thực và hiệu quả.", "Đẩy mạnh các hoạt động đối ngoại quốc phòng song phương và đa phương một cách chủ động.", "Đẩy mạnh hợp tác song phương, nâng tầm đối ngoại đa phương theo Chỉ thị số 25-CT/TW của Ban Bí thư."], correct: 1 },
+            { id: 100, q: "Đồng chí cho biết phương châm chỉ đạo chính sách đối ngoại của Đảng, Nhà nước ta hiện nay?", options: ["Đa dạng hóa, đa phương hóa quan hệ đối ngoại.", "Đẩy mạnh các hoạt động mua sắm vũ khí hiện đại.", "Đẩy mạnh nghiên cứu, sản xuất vũ khí.", "Đẩy mạnh các hoạt động giao lưu, hợp tác quân sự."], correct: 0 },
+            { id: 101, q: "Trong xây dựng Quân đội nhân dân Việt Nam chính quy, nội dung nào được xác định là sức mạnh của Quân đội nhân dân Việt Nam?", options: ["Khoa học và công nghệ", "Quân số và trang bị", "Huấn luyện và thể lực", "Chính quy và kỷ luật"], correct: 3 },
+            { id: 102, q: "Tổ chức biên chế Quân đội nhân dân Việt Nam được xây dựng theo phương châm nào?", options: ["Đông, mạnh, hiện đại", "Nhanh, mạnh, cơ động", "Tinh, gọn, mạnh", "Chính quy, đồng bộ, hiện đại"], correct: 2 },
+            { id: 103, q: "Một trong những trách nhiệm của hạ sĩ quan, binh sĩ trong xây dựng Quân đội là gì?", options: ["Chỉ tập trung hoàn thành nhiệm vụ chuyên môn", "Nâng cao nhận thức về nhiệm vụ xây dựng Quân đội cách mạng, chính quy, tinh nhuệ, hiện đại", "Chỉ tham gia huấn luyện quân sự", "Chỉ chấp hành mệnh lệnh của người chỉ huy"], correct: 1 },
+            { id: 104, q: "Vì sao xây dựng Quân đội nhân dân Việt Nam cách mạng, chính quy, tinh nhuệ, hiện đại là yêu cầu tất yếu trong tình hình mới?", options: ["Vì khoa học công nghệ phát triển nên chỉ cần thay đổi vũ khí, trang bị.", "Vì quân đội cần tăng quân số để đáp ứng yêu cầu nhiệm vụ.", "Vì tất cả các nước trên thế giới đều xây dựng quân đội hiện đại.", "Vì tình hình thế giới, khu vực diễn biến phức tạp; âm mưu chống phá của các thế lực thù địch gia tăng và yêu cầu bảo vệ Tổ quốc ngày càng cao."], correct: 3 },
+            { id: 105, q: "Thủ đoạn “Diễn biến hòa bình” là chiến lược cơ bản của các thế lực thù địch nhằm mục đích gì?", options: ["Phát triển quan hệ hợp tác kinh tế giữa các quốc gia.", "Lật đổ chế độ chính trị - xã hội của các nước tiến bộ, trước hết là các nước xã hội chủ nghĩa từ bên trong, chủ yếu bằng biện pháp phi quân sự.", "Tăng cường giao lưu văn hóa giữa các nước.", "Giải quyết các tranh chấp quốc tế bằng biện pháp hòa bình."], correct: 1 },
+            { id: 106, q: "Mục đích cơ bản của các thế lực thù địch thực hiện “diễn biến hòa bình” đối với Việt Nam là gì?", options: ["Xóa bỏ vai trò lãnh đạo của Đảng Cộng sản Việt Nam, xóa bỏ chủ nghĩa xã hội, xóa bỏ độc lập dân tộc và buộc Việt Nam đi theo con đường tư bản chủ nghĩa.", "Tăng cường hợp tác quốc tế với Việt Nam.", "Thúc đẩy phát triển kinh tế - xã hội ở Việt Nam.", "Tăng cường tiềm lực quốc phòng của Việt Nam."], correct: 0 },
+            { id: 107, q: "Các thế lực thù địch chống phá Việt Nam trên những lĩnh vực nào?", options: ["Chỉ trên lĩnh vực chính trị.", "Chỉ trên lĩnh vực kinh tế và văn hóa.", "Chính trị, kinh tế, văn hóa - xã hội, quốc phòng, an ninh, đối ngoại...", "Chỉ trên lĩnh vực quốc phòng, an ninh."], correct: 2 },
+            { id: 108, q: "Một trong những quan điểm chỉ đạo của Đảng ta trong đấu tranh làm thất bại “diễn biến hòa bình”, bạo loạn lật đổ là gì?", options: ["Không cần quan tâm đến công tác tư tưởng.", "Từ bỏ mục tiêu độc lập dân tộc và chủ nghĩa xã hội.", "Chỉ tập trung phát triển kinh tế.", "Kiên định vận dụng và phát triển sáng tạo chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh."], correct: 3 },
+            { id: 109, q: "Theo phương châm chỉ đạo, đấu tranh phòng, chống “diễn biến hòa bình”, bạo loạn lật đổ phải kết hợp chặt chẽ giữa những yếu tố nào?", options: ["“Xây” và “chống”, lấy xây vững mạnh là chính.", "Phát triển kinh tế và giảm chi tiêu quốc phòng.", "Đối nội và giảm hoạt động đối ngoại.", "Quân sự và kinh tế là chủ yếu."], correct: 0 },
+            { id: 110, q: "Theo quan điểm của Đảng, những ai tôn trọng lợi ích quốc gia - dân tộc, độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ và quan hệ hữu nghị, hợp tác bình đẳng, cùng có lợi với Việt Nam được xác định là gì?", options: ["Đối tượng", "Đối tác", "Đối tượng tác chiến", "Thế lực thù địch"], correct: 1 },
+            { id: 111, q: "Đối tượng của cách mạng Việt Nam trong tình hình mới là gì?", options: ["Chỉ những thế lực tiến hành chiến tranh xâm lược.", "Chỉ các thế lực có sự khác biệt về ý thức hệ với Việt Nam.", "Bất kỳ thế lực nào có âm mưu, hành động chống phá sự nghiệp xây dựng, bảo vệ Tổ quốc của ta.", "Chỉ những nước có tranh chấp lãnh thổ với Việt Nam."], correct: 2 },
+            { id: 112, q: "Quan điểm của Đảng về mối quan hệ giữa đối tác và đối tượng được thể hiện như thế nào?", options: ["Đối tác và đối tượng luôn tách biệt hoàn toàn.", "Đối tác chỉ để hợp tác, đối tượng chỉ để đấu tranh.", "Trong mỗi đối tượng vẫn có thể có mặt cần tranh thủ, hợp tác; trong mỗi đối tác có thể có mặt mâu thuẫn với lợi ích của ta cần đấu tranh.", "Mọi đối tác đều có thể trở thành đồng minh quân sự."], correct: 2 },
+            { id: 113, q: "Để xác định đối tượng tác chiến của Quân đội ta hiện nay cần căn cứ chủ yếu vào yếu tố nào?", options: ["Tiềm lực kinh tế của đối phương.", "Chế độ chính trị của đối phương.", "Âm mưu và hành động của các đối tượng.", "Mức độ quan hệ ngoại giao với Việt Nam."], correct: 2 },
+            { id: 114, q: "Công tác vận động quần chúng góp phần củng cố mối quan hệ nào?", options: ["Quan hệ giữa các đơn vị quân đội", "Quan hệ giữa quân đội với nhân dân", "Quan hệ giữa các doanh nghiệp", "Quan hệ giữa các địa phương"], correct: 1 },
+            { id: 115, q: "Một trong những yêu cầu khi thực hiện công tác vận động quần chúng là gì?", options: ["Xa dân, ít tiếp xúc với dân", "Gần dân, sâu sát cơ sở", "Chỉ làm việc trong doanh trại", "Chỉ thực hiện nhiệm vụ khi có kiểm tra"], correct: 1 },
+            { id: 116, q: "Quân nhân tuyệt đối không được làm gì trong quan hệ với nhân dân?", options: ["Giúp đỡ nhân dân", "Tìm hiểu tâm tư, nguyện vọng của nhân dân", "Tham gia phòng, chống thiên tai", "Sách nhiễu, gây phiền hà cho nhân dân"], correct: 3 },
+            { id: 117, q: "Chủ đề Phong trào Thi đua Quyết thắng năm 2026 là gì?", options: ["“Đoàn kết, kỷ luật, sáng tạo, quyết thắng”", "“Đoàn kết, kỷ cương, đột phá, sáng tạo, quyết thắng”", "“Đoàn kết, dân chủ, kỷ cương, đột phá, phát triển”", "“Tăng tốc, bứt phá, sáng tạo, quyết thắng”"], correct: 1 },
+            { id: 118, q: "Ngày thành lập Tiểu đoàn Hỗn hợp Lý Sơn là ngày nào?", options: ["10/7/2026", "05/8/2026", "12/7/2026", "22/8/2026"], correct: 2 },
+            { id: 119, q: "Chỉ thị số 07-CT/TW ngày 13/7/2026 của Bộ Chính trị được ban hành về nội dung nào sau đây?", options: ["Đẩy mạnh học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh trong tình hình mới.", "Đẩy mạnh học tập, thực hành tư tưởng, đạo đức, phương pháp, phong cách Hồ Chí Minh trong giai đoạn phát triển mới.", "Tăng cường học tập tư tưởng Hồ Chí Minh gắn với xây dựng Đảng trong sạch, vững mạnh.", "Đẩy mạnh thực hiện chuẩn mực đạo đức cách mạng của cán bộ, đảng viên."], correct: 1 },
+            { id: 120, q: "Theo Chỉ thị số 07-CT/TW, trong giai đoạn phát triển mới, việc học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh phải chuyển mạnh theo hướng nào?", options: ["Từ học tập sang tuyên truyền, phổ biến thường xuyên.", "Từ học tập cá nhân sang tổ chức các phong trào tập thể.", "Từ nhận thức sang thực hành thường xuyên, tự giác, thiết thực; gắn với chất lượng, hiệu quả thực thi nhiệm vụ và kết quả phục vụ Nhân dân.", "Từ học tập lý luận sang chủ yếu nghiên cứu khoa học về Hồ Chí Minh."], correct: 2 },
+            { id: 121, q: "Theo Chỉ thị số 07-CT/TW, học tập, thực hành theo Bác phải gắn với nội dung nào sau đây?", options: ["Trách nhiệm nêu gương, đạo đức công vụ, phương pháp làm việc khoa học, dân chủ, gần dân, sát dân, vì dân.", "Quan điểm “dân là gốc”, tôn trọng, lắng nghe và phát huy quyền làm chủ của Nhân dân.", "Kịp thời giải quyết những bức xúc, kiến nghị chính đáng của Nhân dân.", "Tất cả các nội dung trên."], correct: 3 },
+            { id: 122, q: "Theo Chỉ thị 676-CT/QUTW, mục đích phát huy giá trị văn hóa “Bộ đội Cụ Hồ” thời kỳ mới là:", options: ["Xây dựng hình ảnh đẹp của Quân đội trong Nhân dân.", "Nâng cao chất lượng tổng hợp và sức mạnh chiến đấu của Quân đội.", "Giữ vững và tăng cường những nét đặc trưng giá trị văn hóa “Bộ đội Cụ Hồ” trong mỗi quân nhân, góp phần xây dựng Quân đội vững mạnh về chính trị, đáp ứng yêu cầu nhiệm vụ bảo vệ Tổ quốc trong thời kỳ mới.", "Tạo môi trường văn hóa lành mạnh trong các cơ quan, đơn vị."], correct: 2 },
+            { id: 123, q: "Theo Chỉ thị 676-CT/QUTW, việc phát huy giá trị văn hóa “Bộ đội Cụ Hồ” thời kỳ mới phải gắn chặt với:", options: ["Phong trào thi đua Quyết thắng và các cuộc vận động trong Quân đội.", "Xây dựng cấp ủy, tổ chức đảng trong sạch, vững mạnh toàn diện.", "Xây dựng cơ quan, đơn vị vững mạnh toàn diện “mẫu mực, tiêu biểu”.", "Tất cả các nội dung trên."], correct: 3 },
+            { id: 124, q: "Theo Chỉ thị 76/CT-BQP, công tác giáo dục chính trị, quản lý tư tưởng, duy trì kỷ luật và bảo đảm an toàn được xác định là:", options: ["Nội dung quan trọng trong công tác Đảng, công tác chính trị.", "Nhiệm vụ thường xuyên của các cơ quan, đơn vị.", "Nhiệm vụ chính trị trọng tâm; là nội dung được đánh giá, kiểm điểm nghiêm túc, chặt chẽ trong nghị quyết của cấp ủy, chi bộ và báo cáo của các cấp.", "Một trong những tiêu chí đánh giá đơn vị vững mạnh toàn diện."], correct: 2 },
+            { id: 125, q: "Theo chuyên đề, “nhu cầu tự thân” được hiểu là gì?", options: ["Nhu cầu do tổ chức, cấp trên yêu cầu và thúc ép", "Những nhu cầu xuất phát từ bản thân con người, mang tính nội tại, không do yếu tố bên ngoài thúc ép", "Nhu cầu chỉ xuất hiện khi thực hiện nhiệm vụ khó khăn", "Nhu cầu được hình thành thông qua thi đua, khen thưởng"], correct: 1 },
+            { id: 126, q: "Theo tư tưởng Hồ Chí Minh, học tập phải được thực hiện như thế nào?", options: ["Chỉ học khi được tổ chức yêu cầu", "Học tập chủ yếu để hoàn thành thủ tục", "Học tập suốt đời, gắn lý luận với công tác thực tế", "Chỉ học tập trong nhà trường, sách vở"], correct: 2 },
+            { id: 127, q: "Việc học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh cần kết hợp chặt chẽ giữa những nội dung nào?", options: ["“Học” và “thi”", "“Nói” và “viết”", "“Xây” và “chống”", "“Lý luận” và “tuyên truyền”"], correct: 2 },
+            { id: 128, q: "Vì sao cần làm cho việc học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh trở thành nhu cầu tự thân của cán bộ, đảng viên, quần chúng trong Quân đội?", options: ["Để giảm thời gian tổ chức học tập chính trị", "Để khắc phục tình trạng học tập mang tính hình thức, đối phó và nâng cao tính tự giác trong tu dưỡng, rèn luyện", "Để thay thế các nội dung giáo dục chính trị khác", "Để phục vụ chủ yếu cho công tác thi đua, khen thưởng"], correct: 1 },
+            { id: 129, q: "Điều kiện quan trọng để học tập và làm theo Bác đi vào chiều sâu?", options: ["Tăng số lượng khẩu hiệu tuyên truyền.", "Kết hợp chặt chẽ giữa học tập với làm theo, giữa giáo dục với kiểm tra, giám sát.", "Chỉ tổ chức học tập tập trung một lần mỗi năm.", "Chỉ cần phổ biến văn bản."], correct: 1 },
+            { id: 130, q: "Theo tư tưởng Hồ Chí Minh, tình thương yêu đồng chí, đồng đội trong quân đội được xác định là gì?", options: ["Một phong trào thi đua mang tính thời vụ", "Sợi chỉ đỏ xuyên suốt, thuộc tính bản chất của quân đội cách mạng", "Nhiệm vụ riêng của cơ quan chính trị các cấp", "Hoạt động văn hóa, văn nghệ trong đơn vị"], correct: 1 },
+            { id: 131, q: "Việc thực hiện tình thương yêu đồng chí, đồng đội phải được tiến hành như thế nào theo yêu cầu của chuyên đề?", options: ["Thỉnh thoảng, khi có chỉ thị", "Trong các dịp lễ, kỷ niệm", "Thường xuyên, liên tục, thực chất, hiệu quả", "Chủ yếu do các cơ quan chức năng thực hiện"], correct: 2 },
+            { id: 132, q: "Để “xây” tốt tình thương yêu đồng chí, đồng đội, cần chú trọng xây dựng những gì cho cán bộ, chiến sĩ?", options: ["Lòng tự trọng và tinh thần cạnh tranh", "Bản lĩnh chính trị kiên định, phẩm chất đạo đức trong sáng, tinh thần dân chủ, đoàn kết", "Kỹ năng sử dụng vũ khí hiện đại", "Ngoại hình và tác phong chỉnh tề"], correct: 1 },
+            { id: 133, q: "Để nêu cao vai trò tiền phong, gương mẫu, cán bộ, đảng viên cần thực hiện phương châm nào?", options: ["\"Nói đi đôi với làm, làm đi đôi với nói, đã nói là làm\"", "\"Làm trước, nói sau\"", "\"Nói nhiều, làm ít\"", "\"Nói hay hơn làm\""], correct: 0 },
+            { id: 134, q: "Nội dung nào dưới đây thuộc tinh thần “7 dám”?", options: ["Dám nghĩ, dám nói, dám làm, dám chịu trách nhiệm, dám đổi mới sáng tạo, dám đương đầu với khó khăn thử thách và dám hành động vì lợi ích chung.", "Dám làm theo ý kiến cá nhân, không cần tập thể.", "Chỉ dám làm những việc thuận lợi.", "Tránh khó khăn, ngại va chạm."], correct: 0 },
+            { id: 135, q: "Nội dung nào thuộc “2 kiên định”?", options: ["Kiên định đường lối quân sự, quốc phòng của Đảng và xây dựng Quân đội vững mạnh về chính trị.", "Kiên định phát triển kinh tế và văn hóa.", "Kiên định đổi mới sáng tạo và hội nhập kinh tế.", "Kiên định tăng gia sản xuất và huấn luyện."], correct: 0 },
+            { id: 136, q: "Nội dung nào thuộc “2 đẩy mạnh”?", options: ["Đẩy mạnh tăng gia sản xuất và xây dựng doanh trại.", "Đẩy mạnh xây dựng Quân đội nhân dân cách mạng, chính quy, tinh nhuệ, hiện đại và hội nhập quốc tế, đối ngoại quốc phòng.", "Đẩy mạnh hoạt động thương mại và dịch vụ.", "Đẩy mạnh phát triển kinh tế địa phương."], correct: 1 },
+            { id: 137, q: "Nội dung nào thuộc “2 ngăn ngừa”?", options: ["Ngăn ngừa chiến tranh, xung đột và ngăn ngừa suy thoái tư tưởng chính trị, đạo đức, lối sống, “tự diễn biến”, “tự chuyển hóa”.", "Ngăn ngừa khó khăn trong huấn luyện và công tác.", "Ngăn ngừa thiên tai và dịch bệnh.", "Ngăn ngừa thiếu thốn vật chất."], correct: 0 },
+            { id: 138, q: "Nội dung nào là phương châm “5 vững”?", options: ["Chính trị vững - Kỷ luật vững - Công nghệ vững - Nghệ thuật quân sự vững - Đời sống bộ đội vững.", "Chính trị tốt - Huấn luyện giỏi - Lao động giỏi - Đoàn kết tốt - Kỷ luật nghiêm.", "Quân số đủ - Vũ khí tốt - Doanh trại đẹp - Đời sống cao - Kinh tế mạnh.", "Học tập tốt - Công tác tốt - Lao động tốt - Rèn luyện tốt - Sức khỏe tốt."], correct: 0 },
+            { id: 139, q: "Phương châm “6 rõ” gồm những nội dung nào?", options: ["Rõ người, rõ việc, rõ trách nhiệm, rõ thời gian, rõ kết quả, rõ thẩm quyền.", "Rõ kế hoạch, rõ tài chính, rõ vật chất, rõ quân số, rõ chế độ, rõ tiêu chuẩn.", "Rõ nhiệm vụ, rõ mục tiêu, rõ phương hướng, rõ phương pháp, rõ tổ chức, rõ lực lượng.", "Rõ học tập, rõ rèn luyện, rõ công tác, rõ sinh hoạt, rõ kỷ luật, rõ thành tích."], correct: 0 },
+            { id: 140, q: "Thời gian huấn luyện năm 2026 được phân chia như thế nào?", options: ["Giai đoạn 1: từ 01/3 đến 30/6; Giai đoạn 2: từ 01/7 đến 15/12", "Giai đoạn 1: từ 01/1 đến 30/6; Giai đoạn 2: từ 01/8 đến 31/12", "Giai đoạn 1: từ 01/3 đến 15/7; Giai đoạn 2: từ 01/8 đến 15/12", "Giai đoạn 1: từ 01/1 đến 15/7; Giai đoạn 2: từ 01/8 đến 31/12"], correct: 2 },
+            { id: 141, q: "Bảo vệ vững chắc Tổ quốc Việt Nam xã hội chủ nghĩa từ sớm, từ xa, trên tất cả các yếu tố cấu thành Tổ quốc gồm?", options: ["Đất liền, biển đảo, trên không, vũ trụ, biên giới và không gian mạng.", "Đất liền, biển đảo, vũ trụ và không gian mạng.", "Đất liền, biển đảo, trên không, vũ trụ và không gian mạng.", "Đất liền, biển đảo, trên không, vũ trụ."], correct: 2 },
+            { id: 142, q: "Trong quan hệ đối tác xếp theo cấp độ từ thấp đến cao là?", options: ["Đối tác chiến lược toàn diện; đối tác toàn diện; đối tác chiến lược.", "Đối tác toàn diện; đối tác chiến lược; đối tác chiến lược toàn diện.", "Đối tác chiến lược; đối tác toàn diện; đối tác chiến lược toàn diện.", "Đối tác chiến lược toàn diện; đối tác chiến lược; đối tác toàn diện."], correct: 1 },
+            { id: 143, q: "Đấu tranh trên không gian mạng trong Quân đội nhân dân Việt Nam là nhiệm vụ của ai?", options: ["Là nhiệm vụ của cấp ủy, chỉ huy các cấp.", "Là nhiệm vụ của cán bộ chính trị các cấp.", "Là nhiệm vụ của cấp ủy, chỉ huy và của mọi tổ chức, mọi lực lượng trong toàn quân.", "Là nhiệm vụ của cơ quan chính trị các cấp."], correct: 2 },
+            { id: 144, q: "Lực lượng vũ trang Quân khu 5 được thành lập vào ngày tháng năm nào?", options: ["16 tháng 9 năm 1945", "16 tháng 10 năm 1945", "20 tháng 11 năm 1945", "22 tháng 12 năm 1944"], correct: 1 },
+            { id: 145, q: "Ngày, tháng, năm nào, Chủ tịch Nước đã ký quyết định phong tặng Danh hiệu Anh hùng Lực lượng vũ trang nhân dân cho Quân khu 5?", options: ["Ngày 17/8/1985", "Ngày 29/4/2011", "Ngày 16/10/2015", "Ngày 13/02/2026"], correct: 1 },
+            { id: 146, q: "“Chiến dịch 500 ngày đêm đẩy mạnh thực hiện tìm kiếm, quy tập và xác định danh tính hài cốt liệt sĩ” đặt mục tiêu tìm kiếm, quy tập khoảng bao nhiêu hài cốt liệt sĩ?", options: ["5.000 hài cốt", "7.000 hài cốt", "10.000 hài cốt", "18.000 hài cốt"], correct: 3 },
+            { id: 147, q: "Lễ phát động \"Chiến dịch 500 ngày đêm...\" được tổ chức vào thời gian và địa điểm nào?", options: ["Sáng ngày 15/3/2026 tại Hà Nội", "Sáng ngày 02/4/2026 tại Thành cổ Quảng Trị, tỉnh Quảng Trị", "Sáng ngày 27/7/2026 tại Nghĩa trang Liệt sĩ Quốc gia Trường Sơn", "Sáng ngày 20/11/2026 tại tỉnh Tuyên Quang"], correct: 1 },
+            { id: 148, q: "Chiến dịch tập trung đẩy mạnh công tác rà phá bom mìn, vật liệu nổ phục vụ tìm kiếm, quy tập tại các địa bàn trọng điểm nào?", options: ["Quảng Bình, Quảng Trị, Thừa Thiên Huế", "Tuyên Quang (Vị Xuyên), tỉnh Lào Cai, tỉnh Lạng Sơn", "Kon Tum, Gia Lai, Đắk Lắk", "Điện Biên, Sơn La, Lai Châu"], correct: 0 },
+            { id: 149, q: "Theo Luật Phòng thủ dân sự, nội dung nào không thuộc biện pháp khắc phục hậu quả thảm họa, sự cố?", options: ["Tổ chức tìm kiếm người mất tích, cứu chữa người bị thương.", "Tiêu hủy mầm bệnh, vệ sinh môi trường.", "Tổ chức diễn tập phòng thủ dân sự.", "Sửa chữa, khôi phục công trình hạ tầng thiết yếu."], correct: 2 },
+            { id: 150, q: "Theo Luật Phòng thủ dân sự, nguyên tắc quan trọng trong hoạt động phòng thủ dân sự là gì?", options: ["Ứng phó là chính.", "Chuẩn bị từ sớm, từ xa, phòng là chính.", "Khắc phục hậu quả là chính.", "Huy động toàn bộ nguồn lực ngay từ đầu."], correct: 1 },
+            { id: 151, q: "Một điểm mới quan trọng của Luật Tham gia lực lượng gìn giữ hòa bình của Liên hợp quốc năm 2025 so với Nghị quyết số 130/2020/QH14 của Quốc hội là gì?", options: ["Bỏ quy định về hợp tác quốc tế.", "Bổ sung đối tượng dân sự tham gia lực lượng gìn giữ hòa bình Liên hợp quốc.", "Thu hẹp đối tượng tham gia.", "Chỉ cho phép lực lượng quân đội tham gia."], correct: 1 },
+            { id: 152, q: "Theo Luật Tham gia lực lượng gìn giữ hòa bình của Liên hợp quốc, lực lượng Việt Nam tham gia hoạt động gìn giữ hòa bình Liên hợp quốc gồm?", options: ["Lực lượng quân sự và lực lượng công an.", "Lực lượng vũ trang và lực lượng dân sự.", "Lực lượng chuyên trách và lực lượng dự bị.", "Lực lượng thường trực và lực lượng huy động."], correct: 1 },
+            { id: 153, q: "Theo Luật Tham gia lực lượng gìn giữ hòa bình của Liên hợp quốc, một trong những nội dung huấn luyện, đào tạo đối với lực lượng tham gia gìn giữ hòa bình Liên hợp quốc là gì?", options: ["Huấn luyện tác chiến chiến lược.", "Ngoại ngữ, bình đẳng giới và các kỹ năng khác.", "Quản lý hành chính nhà nước.", "Điều tra hình sự."], correct: 1 },
+            { id: 154, q: "Loại nào dưới đây không thuộc các loại tình trạng khẩn cấp được Luật Tình trạng khẩn cấp năm 2025 quy định?", options: ["Tình trạng khẩn cấp về thảm họa.", "Tình trạng khẩn cấp về quốc phòng.", "Tình trạng khẩn cấp về an ninh quốc gia, trật tự, an toàn xã hội.", "Tình trạng khẩn cấp về kinh tế."], correct: 3 },
+            { id: 155, q: "Theo Luật Tình trạng khẩn cấp năm 2025, đối tượng nào được ưu tiên trong cứu trợ, hỗ trợ khẩn cấp?", options: ["Người có thu nhập thấp", "Người làm việc trong khu vực công, các đối tượng nhạy cảm dễ bị tổn thương.", "Người có nguy cơ bị ảnh hưởng đến tính mạng, sức khỏe, đặc biệt là đối tượng dễ bị tổn thương", "Người đang kinh doanh"], correct: 2 },
+            { id: 156, q: "Theo Pháp lệnh quản lý, bảo vệ khu di tích Lăng Chủ tịch Hồ Chí Minh, một trong những hoạt động chính trị tại Khu Di tích Lăng là gì?", options: ["Lễ viếng Chủ tịch Hồ Chí Minh.", "Hội chợ thương mại.", "Đấu giá tài sản.", "Triển lãm kinh doanh."], correct: 0 },
+            { id: 157, q: "Theo khoản 1 Điều 2 Luật Thanh tra năm 2025 (sửa đổi), khái niệm “Thanh tra” được định nghĩa chuẩn xác như thế nào?", options: ["Là hoạt động xem xét, đánh giá, kết luận, kiến nghị xử lý đối với việc thực hiện chính sách, pháp luật, nhiệm vụ.", "Là hoạt động kiểm tra, xử phạt, thu hồi tài sản vi phạm đối với mọi cá nhân, tổ chức trên lãnh thổ Việt Nam.", "Là hoạt động điều tra, truy tố, xét xử các hành vi vi phạm pháp luật hành chính và hình sự của đối tượng.", "Là hoạt động giám sát, đôn đốc, hướng dẫn các cơ quan nhà nước thực hiện đúng chức năng, nhiệm vụ được giao."], correct: 0 },
+            { id: 158, q: "Qua nghiên cứu chuyên đề năm 2026, đặc điểm nào khẳng định AI vẫn mang tính công cụ và phụ thuộc vào con người?", options: ["AI mô phỏng được cảm xúc con người", "AI xử lý thông tin nhanh hơn con người", "AI không có ý thức hay lập trường chính trị riêng", "AI có khả năng tự học tập từ dữ liệu"], correct: 2 },
+            { id: 159, q: "Qua nghiên cứu chuyên đề năm 2026, tại sao việc cá nhân hóa nội dung của AI lại tiềm ẩn nguy cơ làm phai nhạt lòng tin chính trị?", options: ["Vì AI không thể dịch được các văn bản chính trị sang tiếng Việt để cung cấp cho người sử dụng", "Vì AI liên tục đề xuất nội dung tiêu cực nếu người dùng lỡ xem các tin tức đó", "Vì AI làm giảm tốc độ truy cập vào các trang báo Đảng", "Vì AI yêu cầu người dùng phải trả phí để xem tin tức chính thống"], correct: 1 },
+            { id: 160, q: "Qua nghiên cứu chuyên đề năm 2026, trong bối cảnh AI, yếu tố nào vẫn giữ vai trò quyết định trong cuộc đấu tranh tư tưởng?", options: ["Sự hiện đại của các phần mềm diệt virus", "Tốc độ đường truyền internet", "Số lượng máy tính trang bị cho đơn vị", "Nhân tố con người (bản lĩnh và năng lực cán bộ)"], correct: 3 },
+            { id: 161, q: "Qua nghiên cứu chuyên đề năm 2026, sự khác biệt cơ bản trong cách tiếp cận nhân quyền giữa các nước phương Tây và các nước đang phát triển (như Việt Nam) là gì?", options: ["Phương Tây tuyệt đối hóa quyền dân sự, chính trị cá nhân; nước đang phát triển đề cao cả quyền kinh tế, xã hội, cộng đồng.", "Phương Tây coi trọng quyền phát triển cộng đồng; nước đang phát triển đề cao tự do cá nhân vô hạn.", "Phương Tây phủ nhận các chuẩn mực quốc tế; nước đang phát triển áp dụng tuyệt đối chuẩn mực quốc tế.", "Phương Tây không sử dụng nhân quyền làm công cụ ngoại giao; nước đang phát triển coi đó là vũ khí."], correct: 0 },
+            { id: 162, q: "Qua nghiên cứu chuyên đề năm 2026, trong tổng thể chiến lược “diễn biến hòa bình”, các thế lực thù địch coi vấn đề tự do, dân chủ, nhân quyền là gì?", options: ["Phương tiện để hỗ trợ Việt Nam phát triển kinh tế và nâng cao trình độ quản lý xã hội.", "Công cụ hữu hiệu để kích động, tập hợp lực lượng, hình thành tổ chức đối lập, gây bạo loạn, tạo cớ can thiệp.", "Mối quan tâm thuần túy về mặt học thuật và lý luận triết học không có mục đích chính trị.", "Biện pháp hòa bình nhằm giúp Việt Nam giữ vững ổn định chính trị và an ninh quốc phòng."], correct: 1 },
+            { id: 163, q: "Qua nghiên cứu chuyên đề năm 2026, một số chính phủ và tổ chức quốc tế thiếu thiện chí thường dùng thủ đoạn nào để can thiệp, gây sức ép với Việt Nam?", options: ["Đưa báo cáo sai lệch, đòi thả “tù nhân lương tâm” (đối tượng vi phạm pháp luật), gắn nhân quyền với viện trợ.", "Đầu tư xây dựng các trung tâm y tế, trường học miễn phí tại các vùng sâu vùng xa.", "Hỗ trợ Việt Nam khắc phục hậu quả chiến tranh và rà phá bom mìn tồn đọng.", "Ký kết các hiệp định thương mại tự do không kèm theo bất kỳ điều kiện ràng buộc nào."], correct: 0 },
+            { id: 164, q: "Qua nghiên cứu chuyên đề năm 2026, “sự cố truyền thông” được hiểu là gì?", options: ["Sự việc có sức lan truyền rất lớn", "Sự việc đơn lẻ, quy mô hẹp, còn khả năng kiểm soát", "Khủng hoảng đã ảnh hưởng toàn xã hội", "Vụ việc đã trở thành vấn đề chính trị - xã hội được mọi người quan tâm"], correct: 1 },
+            { id: 165, q: "Qua nghiên cứu chuyên đề năm 2026, “khủng hoảng truyền thông” khác với “sự cố truyền thông” chủ yếu ở điểm nào?", options: ["Mức độ tác động và khả năng kiểm soát", "Thời gian xảy ra và địa điểm", "Chủ thể gây ra sự việc và mức độ ảnh hưởng", "Hình thức thông tin ban đầu và cách xử lý"], correct: 0 },
+            { id: 166, q: "Qua nghiên cứu chuyên đề năm 2026, “thời gian vàng” trong xử lý khủng hoảng truyền thông thường được xác định là:", options: ["Dưới 24 giờ", "Từ 24 đến 48 giờ", "Trong một tuần", "Sau khi có kết luận"], correct: 0 },
+            { id: 167, q: "Theo quy định của Luật Lực lượng dự bị động viên năm 2019, lực lượng dự bị động viên được hiểu là lực lượng nào sau đây?", options: ["Lực lượng quân đội thường trực đang phục vụ tại ngũ trong các đơn vị chiến đấu", "Lực lượng dân quân tự vệ hoạt động tại địa phương, cơ sở", "Lực lượng gồm quân nhân dự bị và phương tiện kỹ thuật dự bị được đăng ký, quản lý và sắp xếp vào đơn vị", "Lực lượng công an nhân dân làm nhiệm vụ giữ gìn trật tự xã hội"], correct: 2 },
+            { id: 168, q: "Nguồn chủ yếu để xây dựng lực lượng hạ sĩ quan, binh sĩ dự bị được hình thành từ đâu?", options: ["Người nước ngoài cư trú tại Việt Nam", "Bộ đội hoàn thành nghĩa vụ quân sự trở về địa phương", "Trẻ em trong độ tuổi đi học", "Người cao tuổi đã nghỉ hưu"], correct: 1 },
+            { id: 169, q: "Các thế lực thù địch thường xuyên lợi dụng những vấn đề nhạy cảm nào để gây mất ổn định chính trị - xã hội ở Việt Nam?", options: ["Giáo dục và y tế", "Dân chủ, nhân quyền, dân tộc, tôn giáo", "Công nghiệp và nông nghiệp", "Kinh tế xã hội"], correct: 1 },
+            { id: 170, q: "Tiêu chí \"Hiện đại\" trong Quân đội bao gồm những yếu tố nào?", options: ["Con người hiện đại, vũ khí hiện đại và nghệ thuật quân sự hiện đại.", "Chỉ cần vũ khí mua từ nước ngoài.", "Chỉ cần thay đổi quân phục mới.", "Có nhiều doanh nghiệp làm kinh tế."], correct: 0 },
+            { id: 171, q: "Theo quy định của Luật Lực lượng dự bị động viên năm 2019, lực lượng dự bị động viên được hiểu là lực lượng nào sau đây?", options: ["Lực lượng quân đội thường trực đang phục vụ tại ngũ trong các đơn vị chiến đấu", "Lực lượng dân quân tự vệ hoạt động tại địa phương, cơ sở", "Lực lượng gồm quân nhân dự bị và phương tiện kỹ thuật dự bị được đăng ký, quản lý và sắp xếp vào đơn vị", "Lực lượng công an nhân dân làm nhiệm vụ giữ gìn trật tự xã hội"], correct: 2 },
+            { id: 172, q: "Quân nhân dự bị trong lực lượng dự bị động viên bao gồm những đối tượng nào theo quy định của pháp luật hiện hành?", options: ["Chỉ bao gồm sĩ quan đã nghỉ hưu và không còn nghĩa vụ quân sự", "Bao gồm sĩ quan dự bị, quân nhân chuyên nghiệp dự bị và hạ sĩ quan, binh sĩ dự bị", "Chỉ bao gồm thanh niên chưa nhập ngũ", "Bao gồm toàn bộ công dân trong độ tuổi lao động"], correct: 1 },
+            { id: 173, q: "Trong thời bình, lực lượng dự bị động viên được tổ chức và hoạt động như thế nào?", options: ["Không được quản lý, chỉ tồn tại trên giấy tờ", "Được đăng ký, quản lý, tổ chức thành đơn vị và huấn luyện theo quy định", "Chỉ tham gia lao động sản xuất tại địa phương", "Giải thể hoàn toàn để giảm chi phí quốc phòng"], correct: 1 },
+            { id: 174, q: "Lực lượng dự bị động viên được huy động trong trường hợp nào sau đây?", options: ["Khi đất nước ổn định hoàn toàn và không có bất kỳ nguy cơ nào về an ninh", "Khi có lệnh tổng động viên, động viên cục bộ hoặc có nguy cơ đe dọa an ninh quốc gia", "Khi tổ chức các hoạt động văn hóa, thể thao quy mô lớn tại địa phương", "Khi các đơn vị cần bổ sung lực lượng cho hoạt động sản xuất kinh tế"], correct: 1 },
+            { id: 175, q: "Vai trò của lực lượng dự bị động viên trong giai đoạn đầu chiến tranh được thể hiện rõ nhất ở nội dung nào sau đây?", options: ["Làm giảm số lượng quân đội", "Tạo nguồn lực lao động cho nền kinh tế", "Bổ sung nhanh lực lượng, làm thay đổi tương quan so sánh lực lượng có lợi cho ta", "Không có vai trò cụ thể"], correct: 2 },
+            { id: 176, q: "Việc xây dựng lực lượng dự bị động viên thể hiện rõ quan điểm nào của Đảng và Nhà nước ta?", options: ["Tách biệt hoàn toàn kinh tế với quốc phòng", "Kết hợp chặt chẽ kinh tế, văn hóa, xã hội với quốc phòng, an ninh", "Chỉ tập trung phát triển quân đội thường trực", "Giảm vai trò của quốc phòng"], correct: 1 },
+            { id: 177, q: "Công tác dân vận của quân đội góp phần xây dựng nền quốc phòng toàn dân và yếu tố nào đi kèm?", options: ["Nền kinh tế mở", "Nền an ninh nhân dân", "Nền giáo dục quốc dân", "Nền văn hóa phát triển"], correct: 1 },
+            { id: 178, q: "Một nhiệm vụ quan trọng của công tác dân vận là gì?", options: ["Tổ chức sản xuất", "Xây dựng khu vực phòng thủ vững chắc", "Phát triển thương mại", "Cung cấp thiết bị điện tử"], correct: 1 },
+            { id: 179, q: "Trong công tác tuyên truyền, cán bộ, chiến sĩ cần làm gì để nhân dân tin tưởng vào Đảng?", options: ["Tuyên truyền chung chung", "Làm cho nhân dân hiểu rõ và tin tưởng tuyệt đối vào sự lãnh đạo của Đảng", "Chỉ tuyên truyền khi có yêu cầu", "Hạn chế tiếp xúc nhân dân"], correct: 1 },
+            { id: 180, q: "Công tác dân vận góp phần nâng cao yếu tố nào của hệ thống chính trị ở cơ sở?", options: ["Thu nhập", "Năng lực lãnh đạo và hiệu lực quản lý của cấp ủy, chính quyền", "Số lượng cán bộ", "Quy mô hạ tầng"], correct: 1 },
+            { id: 181, q: "Hệ thống chính trị cơ sở có vai trò gì?", options: ["Quản lý doanh nghiệp", "Là cầu nối giữa Đảng với quần chúng nhân dân", "Điều hành kinh tế quốc gia", "Thực hiện giao thương đối ngoại"], correct: 1 },
+            { id: 182, q: "Phương châm thực hiện dân chủ cơ sở được xác định là gì?", options: ["Dân biết, dân làm", "Dân biết, dân bàn, dân làm, dân kiểm tra, dân giám sát, dân thụ hưởng", "Dân quyết định", "Dân giám sát độc lập"], correct: 1 },
+            { id: 183, q: "Nhiệm vụ chiến lược của cách mạng Việt Nam hiện nay là gì?", options: ["Chỉ phát triển kinh tế", "Xây dựng và bảo vệ Tổ quốc xã hội chủ nghĩa", "Chỉ giữ vững quốc phòng", "Hội nhập quốc tế toàn diện"], correct: 1 },
+            { id: 184, q: "Sức mạnh để đấu tranh làm thất bại âm mưu của các thế lực thù địch là gì?", options: ["Sức mạnh quân sự", "Sức mạnh tổng hợp của toàn Đảng, toàn dân, toàn quân", "Sức mạnh kinh tế", "Sức mạnh hỗ trợ quốc tế"], correct: 1 },
+            { id: 185, q: "Yếu tố quyết định thắng lợi trong đấu tranh chống “diễn biến hòa bình” là gì?", options: ["Vũ khí", "Sức mạnh tổng hợp và sự đoàn kết toàn dân", "Kinh tế", "Con người"], correct: 3 },
+            { id: 186, q: "Trong đấu tranh cần kết hợp chặt chẽ yếu tố nào?", options: ["Kinh tế và văn hóa", "“Xây” và “chống”", "Chính trị và ngoại giao", "Nội bộ và quốc tế"], correct: 1 },
+            { id: 187, q: "Vì sao phải coi “giữ vững bên trong” là yếu tố quyết định trong đấu tranh?", options: ["Do yếu tố quốc tế quyết định", "Vì nội bộ vững mạnh sẽ làm thất bại mọi âm mưu từ bên ngoài", "Do kinh tế quyết định", "Vì quốc phòng đã hiện đại"], correct: 1 },
+            { id: 188, q: "Công tác tư tưởng có vai trò như thế nào trong đấu tranh chống “diễn biến hòa bình”?", options: ["Vai trò phụ", "Vai trò nền tảng, quyết định nhận thức", "Không quan trọng", "Vai trò thứ yếu"], correct: 1 },
+            { id: 189, q: "Khi một đối tác có những hành động xâm phạm chủ quyền biển đảo của Việt Nam, chúng ta nên ứng xử như thế nào?", options: ["Kiên quyết đấu tranh bảo vệ chủ quyền đồng thời duy trì đối thoại để giải quyết.", "Kêu gọi nước khác vào đánh hộ.", "Im lặng để giữ hòa khí.", "Cắt đứt toàn bộ quan hệ ngoại giao."], correct: 0 },
+            { id: 190, q: "Trách nhiệm của quân nhân trong việc phòng chống 'tự diễn biến', 'tự chuyển hóa' là gì?", options: ["Không cần quan tâm vì đó là việc của cấp trên.", "Sử dụng mạng xã hội để tranh cãi với mọi người.", "Tích cực học tập, rèn luyện, giữ vững kỷ luật và đoàn kết nội bộ.", "Không tham gia vào các nhiệm vụ chung."], correct: 2 },
+            { id: 191, q: "Khái niệm 'Đối tác chiến lược' thể hiện mức độ quan hệ như thế nào?", options: ["Quan hệ tạm thời trong một thời gian ngắn.", "Chỉ là một tên gọi xã giao trong ngoại giao.", "Quan hệ có tầm quan trọng đặc biệt, lâu dài và tin cậy lẫn nhau.", "Quan hệ giao thương mua bán bình thường."], correct: 2 },
+            { id: 192, q: "Việc Đảng ta chủ trương 'thêm bạn, bớt thù' nhằm mục đích gì?", options: ["Để không phải tập luyện quân sự nữa.", "Để vay được nhiều tiền hơn từ nước ngoài.", "Tạo môi trường quốc tế thuận lợi nhất cho công cuộc xây dựng và bảo vệ Tổ quốc.", "Để mở rộng giao lưu giải trí."], correct: 2 },
+            { id: 193, q: "Thế lực thù địch thường lợi dụng vấn đề nào sau đây để kích động, chống phá cách mạng Việt Nam?", options: ["Dân tộc, tôn giáo và nhân quyền.", "Việc bảo vệ động vật hoang dã.", "Các giải thi đấu bóng đá quốc tế.", "Vấn đề bảo tồn văn hóa cổ."], correct: 0 },
+            { id: 194, q: "Khẩu hiệu 'Việt Nam muốn là bạn, là đối tác tin cậy và là thành viên có trách nhiệm của cộng đồng quốc tế' thể hiện điều gì?", options: ["Sự không rõ ràng trong việc chọn bạn.", "Sự sợ hãi trước sức mạnh của các cường quốc.", "Đường lối đối ngoại rộng mở, đa phương hóa, đa dạng hóa.", "Tư tưởng khép kín quốc gia."], correct: 2 },
+            { id: 195, q: "Để tăng cường hợp tác quốc phòng đa phương, trọng tâm là tham gia vào các cơ chế hợp tác trong khuôn khổ tổ chức nào?", options: ["Liên minh Châu Âu (EU).", "ASEAN.", "NATO.", "BRICS."], correct: 1 },
+            { id: 196, q: "Kết luận số 53-KL/TW ngày 28/4/2023 của Bộ Chính trị xác định định hướng hội nhập quốc tế và đối ngoại quốc phòng tầm nhìn đến năm nào?", options: ["Đến năm 2030 và những năm tiếp theo.", "Đến năm 2025.", "Đến năm 2045.", "Đến năm 2050."], correct: 0 },
+            { id: 197, q: "Phương châm thực hiện nhiệm vụ đối ngoại quốc phòng là gì?", options: ["Tích cực, chủ động, chắc chắn, linh hoạt, hiệu quả.", "Bảo mật, thận trọng, phòng ngự bị động.", "Kín đáo, hạn chế giao lưu để giữ bí mật quân sự.", "Chủ động tấn công ngoại giao."], correct: 0 },
+            { id: 198, q: "Trong công tác đào tạo đội ngũ cán bộ làm đối ngoại quốc phòng, yếu tố nào được xác định là then chốt, quyết định?", options: ["Trình độ ngoại ngữ thông thạo nhiều thứ tiếng.", "Bản lĩnh chính trị kiên định, vững vàng, lòng trung thành tuyệt đối.", "Khả năng giao tiếp và lễ tân ngoại giao xuất sắc.", "Bằng cấp đào tạo nước ngoài."], correct: 1 },
+            { id: 199, q: "Nghị quyết số 2662-NQ/QUTW ngày 26/02/2024 về hội nhập quốc tế và đối ngoại quốc phòng là do cơ quan nào ban hành?", options: ["Bộ Chính trị.", "Quân ủy Trung ương.", "Chính phủ.", "Bộ Quốc phòng."], correct: 1 },
+            { id: 200, q: "Trong việc thực hiện đường lối đối ngoại, hạ sĩ quan - binh sĩ cần nêu cao ý thức cảnh giác cách mạng trước âm mưu, thủ đoạn nào của các thế lực thù địch?", options: ["Can thiệp quân sự trực tiếp bằng vũ lực.", "Phong tỏa cấm vận kinh tế kéo dài.", "\"Diễn biến hòa bình\", lợi dụng, mua chuộc bằng vật chất.", "Đánh phá công nghệ thông tin."], correct: 2 },
+            { id: 201, q: "Việt Nam là quốc gia dân tộc thống nhất gồm bao nhiêu dân tộc cùng sinh sống?", options: ["56 dân tộc", "54 dân tộc", "55 dân tộc", "53 dân tộc"], correct: 1 },
+            { id: 202, q: "Trong số 53 dân tộc thiểu số, dân tộc nào có quy mô dân số đông nhất (hơn 1,85 triệu người)?", options: ["Dân tộc H'Mông", "Dân tộc Thái", "Dân tộc Tày", "Dân tộc Mường"], correct: 2 },
+            { id: 203, q: "Theo thống kê, dân tộc thiểu số nào ở nước ta có quy mô dân số thấp nhất (chỉ khoảng 428 người)?", options: ["Ơ Đu", "Si La", "Pu Péo", "Rơ Măm"], correct: 0 },
+            { id: 204, q: "Đặc điểm cư trú của các dân tộc ở Việt Nam mang tính chất gì nổi bật?", options: ["Cư trú đan xen, không có sự phân chia lãnh thổ riêng", "Phân chia lãnh thổ rõ rệt theo từng dân tộc", "Mỗi dân tộc có một chế độ xã hội riêng biệt", "Cư trú biệt lập tại từng vùng núi cao"], correct: 0 },
+            { id: 205, q: "Diện tích tự nhiên của khu vực miền núi, nơi sinh sống lâu đời của phần lớn đồng bào dân tộc thiểu số, chiếm bao nhiêu phần diện tích cả nước?", options: ["¾", "1/2", "2/3", "4/5"], correct: 0 },
+            { id: 206, q: "Trong chức năng đối ngoại, Nhà nước ta thực hiện đường lối nào là nhất quán?", options: ["Đóng cửa, tự cô lập", "Độc lập, tự chủ, hòa bình, hợp tác và phát triển", "Phụ thuộc vào nước lớn", "Chỉ giao thương khu vực Đông Nam Á"], correct: 1 },
+            { id: 207, q: "Đặc trưng cơ bản đầu tiên của Nhà nước pháp quyền xã hội chủ nghĩa Việt Nam là gì?", options: ["Nhà nước quản lý bằng mệnh lệnh hành chính", "Nhà nước của nhân dân, do nhân dân, vì nhân dân", "Nhà nước do quân đội lãnh đạo", "Nhà nước phân chia tam quyền phân lập"], correct: 1 },
+            { id: 208, q: "Trong Nhà nước pháp quyền, Hiến pháp giữ vị trí như thế nào?", options: ["Là văn bản tham khảo", "Là đạo luật cơ bản, có hiệu lực pháp lý cao nhất", "Là văn bản nội bộ", "Là nghị quyết chuyên đề"], correct: 1 },
+            { id: 209, q: "Nguyên tắc quản lý xã hội bằng pháp luật trong Nhà nước pháp quyền đòi hỏi điều gì?", options: ["Chỉ cơ quan nhà nước phải chấp hành pháp luật", "Mọi tổ chức, cá nhân đều phải tuân theo Hiến pháp và pháp luật", "Chỉ công dân phải chấp hành pháp luật", "Ưu tiên xử lý theo quy ước cộng đồng"], correct: 1 },
+            { id: 210, q: "Theo đặc trưng của Nhà nước pháp quyền xã hội chủ nghĩa Việt Nam, quyền lực nhà nước được tổ chức như thế nào?", options: ["Phân chia tuyệt đối", "Thống nhất, có phân công, phối hợp và kiểm soát", "Tập trung hoàn toàn", "Phân quyền cho từng địa phương tự quyết"], correct: 1 },
+            { id: 211, q: "Quyền lập pháp trong bộ máy nhà nước thuộc về cơ quan nào?", options: ["Chính phủ", "Quốc hội", "Tòa án", "Bộ Tư pháp"], correct: 1 },
+            { id: 212, q: "“Chính quy” trong quân đội thể hiện ở đâu?", options: ["Trang phục đẹp", "Kỷ luật, nền nếp thống nhất", "Số lượng đông", "Trang bị vũ khí mới"], correct: 1 },
+            { id: 213, q: "Vai trò của Quân đội nhân dân Việt Nam được xác định là gì?", options: ["Lực lượng hỗ trợ kinh tế", "Lực lượng nòng cốt trong sự nghiệp quốc phòng", "Lực lượng dự bị", "Lực lượng giữ gìn trật tự đô thị"], correct: 1 },
+            { id: 214, q: "Hiện đại hóa quân đội phải gắn với điều gì?", options: ["Khả năng thực tế đất nước", "Sao chép nước ngoài", "Tăng quân số", "Mua sắm từ nhiều nguồn"], correct: 0 },
+            { id: 215, q: "Tiêu chí hàng đầu xây dựng quân đội là gì?", options: ["Vũ khí", "Chính trị", "Số lượng", "Kỹ thuật"], correct: 1 },
+            { id: 216, q: "“Tinh” trong tổ chức quân đội là gì?", options: ["Ít người", "Chất lượng cao", "Trang bị mới", "Huấn luyện ngắn"], correct: 1 },
+            { id: 217, q: "“Gọn” trong tổ chức quân đội là gì?", options: ["Giảm nhiệm vụ", "Tổ chức hợp lý, không chồng chéo", "Cắt giảm huấn luyện", "Thu hẹp địa bàn tác chiến"], correct: 1 },
+            { id: 218, q: "Văn hóa theo Đại hội XIV có vai trò gì trong xây dựng đất nước?", options: ["Không quan trọng", "Nền tảng tinh thần vững chắc của xã hội", "Chỉ mang tính truyền thống", "Yếu tố phụ trợ kinh tế"], correct: 1 },
+            { id: 219, q: "Giá trị văn hóa có vai trò gì đối với quân đội?", options: ["Không cần thiết", "Là nguồn sức mạnh tinh thần, nền tảng xây dựng quân đội", "Chỉ mang tính truyền thống", "Để biểu diễn lễ hội"], correct: 1 },
+            { id: 220, q: "Danh xưng “Bộ đội Cụ Hồ” ra đời từ đâu?", options: ["Do Nhà nước phong tặng", "Do nhân dân yêu mến gọi", "Do quân đội đặt", "Do quốc tế công nhận"], correct: 1 },
+            { id: 221, q: "Danh hiệu “Bộ đội Cụ Hồ” phản ánh điều gì rõ nhất?", options: ["Sức mạnh quân sự", "Mối quan hệ máu thịt quân – dân", "Trình độ kỹ thuật", "Tính kỷ luật nghiêm"], correct: 1 },
+            { id: 222, q: "Theo Đại hội XIV, văn hóa góp phần quan trọng vào việc gì?", options: ["Tăng trưởng ngắn hạn", "Phát triển bền vững đất nước", "Giảm dân số", "Hội nhập kinh tế"], correct: 1 },
+            { id: 223, q: "Đại hội XIV nhấn mạnh cần làm gì trước sự xâm nhập của văn hóa độc hại?", options: ["Không quan tâm", "Tăng cường giữ gìn và phát huy giá trị văn hóa truyền thống", "Cấm hoàn toàn internet", "Tự do tiếp nhận"], correct: 1 },
+            { id: 224, q: "Công tác dân vận nhằm:", options: ["Tăng lợi nhuận", "Gắn bó quân dân", "Phát triển cá nhân", "Xây dựng doanh nghiệp"], correct: 1 },
+            { id: 225, q: "Phương châm “4 cùng” gồm:", options: ["Ăn, ngủ, nghỉ, chơi", "Cùng ăn, cùng ở, cùng làm, cùng nói", "Học, làm, chơi, nghỉ", "Cùng học, cùng làm, cùng họp, cùng diễn"], correct: 1 },
+            { id: 226, q: "Trong đoàn kết quốc tế cần:", options: ["Độc lập tuyệt đối", "Hợp tác đa phương", "Không giao lưu", "Đóng cửa biên giới"], correct: 1 },
+            { id: 227, q: "Hoạt động đối ngoại quốc phòng nhằm:", options: ["Tăng xung đột", "Xây dựng lòng tin", "Giảm hợp tác", "Tăng chi phí quốc phòng"], correct: 1 },
+            { id: 228, q: "Hạ sĩ quan, binh sĩ cần làm gì để giữ đoàn kết nội bộ?", options: ["Thờ ơ", "Tu dưỡng đạo đức", "Tránh trách nhiệm", "Chỉ làm việc riêng"], correct: 1 },
+            { id: 229, q: "Trong quan hệ với nhân dân, quân nhân phải:", options: ["Xa cách", "Kính trọng, giúp đỡ", "Không liên hệ", "Sách nhiễu"], correct: 1 },
+            { id: 230, q: "Chiều rộng lãnh hải Việt Nam là:", options: ["10 hải lý", "12 hải lý", "24 hải lý", "200 hải lý"], correct: 1 },
+            { id: 231, q: "1 hải lý tương đương:", options: ["1.500 m", "1.852 m", "2.000 m", "1.200 m"], correct: 1 },
+            { id: 232, q: "Vùng tiếp giáp lãnh hải có chiều rộng:", options: ["10 hải lý", "12 hải lý", "24 hải lý", "200 hải lý"], correct: 2 },
+            { id: 233, q: "Vùng đặc quyền kinh tế có chiều rộng tối đa:", options: ["100 hải lý", "150 hải lý", "200 hải lý", "350 hải lý"], correct: 2 },
+            { id: 234, q: "Thềm lục địa là:", options: ["Vùng nước ven bờ", "Đáy biển và lòng đất dưới đáy biển", "Vùng trời trên biển", "Mặt nước biển xa bờ"], correct: 1 },
+            { id: 235, q: "Công tác tuyên truyền nhằm mục đích gì?", options: ["Tăng dân số", "Nâng cao nhận thức", "Giảm chi phí", "Tạo sự kiện"], correct: 1 },
+            { id: 236, q: "Sức mạnh bảo vệ Tổ quốc là gì?", options: ["Chỉ quân sự", "Tổng hợp toàn dân tộc", "Chỉ kinh tế", "Sức mạnh vũ khí"], correct: 1 },
+            { id: 237, q: "“Thế trận lòng dân” có ý nghĩa gì?", options: ["Không quan trọng", "Mấu chốt", "Thứ yếu", "Bổ sung"], correct: 1 },
+            { id: 238, q: "Hạ sĩ quan - binh sĩ cần làm gì để bảo vệ Tổ quốc?", options: ["Chỉ huấn luyện", "Nâng cao nhận thức, trách nhiệm", "Không cần học tập", "Chỉ làm kinh tế"], correct: 1 },
+            { id: 239, q: "Yêu cầu đối với quân nhân là gì?", options: ["Trung thành tuyệt đối", "Làm kinh tế", "Không cần kỷ luật", "Tự do hoạt động"], correct: 0 }
+        ];
+
+        // APP GLOBAL STATE
+        let currentUser = null;
+        let currentExamQuestions = []; // 50 randomized questions for current session
+        let userAnswers = {}; // Map: question index (0-49) -> selected option index (0-3)
+        let currentQuestionIdx = 0;
+        let timerInterval = null;
+        let timeRemaining = 1500; // 25 minutes = 1500 seconds
+        let examStartTime = null;
+
+        // ON INIT
+        window.onload = function () {
+            loadLeaderboard();
+        };
+
+        function showPage(pageId) {
+            document.getElementById('pageHome').classList.add('hidden');
+            document.getElementById('pageExam').classList.add('hidden');
+            document.getElementById('pageResult').classList.add('hidden');
+
+            document.getElementById(pageId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function confirmGoHome() {
+            if (timerInterval) {
+                if (confirm("Bài thi đang diễn ra! Nếu thoát về Trang chủ, kết quả sẽ không được lưu. Bạn có chắc chắn?")) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    showPage('pageHome');
+                }
+            } else {
+                showPage('pageHome');
+            }
+        }
+
+        // START EXAM LOGIC
+        function startExam(e) {
+            e.preventDefault();
+
+            // Get User Info
+            currentUser = {
+                name: document.getElementById('inputName').value.trim().toUpperCase(),
+                rank: document.getElementById('selectRank').value,
+                position: document.getElementById('inputPosition').value.trim(),
+                unit: document.getElementById('inputUnit').value.trim()
+            };
+
+            // Update UI Header in Exam
+            document.getElementById('examUserInfo').innerText = currentUser.name;
+            document.getElementById('examUserSubInfo').innerText = `${currentUser.rank} - ${currentUser.position} | ${currentUser.unit}`;
+
+            // Generate 50 Random Questions from 239 Bank
+            currentExamQuestions = getRandom50Questions();
+            userAnswers = {};
+            currentQuestionIdx = 0;
+            timeRemaining = 1500; // 25 minutes
+            examStartTime = new Date();
+
+            // Render Exam UI
+            renderQuestion(currentQuestionIdx);
+            renderQuestionGrid();
+            startTimer();
+
+            showPage('pageExam');
+        }
+
+        // Shuffle & Pick 50 Questions with Shuffled Options
+        function getRandom50Questions() {
+            // Clone bank
+            let bankCopy = JSON.parse(JSON.stringify(QUESTION_BANK));
+            
+            // Fisher-Yates shuffle bank
+            for (let i = bankCopy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [bankCopy[i], bankCopy[j]] = [bankCopy[j], bankCopy[i]];
+            }
+
+            // Pick first 50
+            let picked = bankCopy.slice(0, 50);
+
+            // Shuffle options for each question while maintaining correct answer reference
+            return picked.map((qObj, idx) => {
+                let optionsWithOrig = qObj.options.map((optText, oIdx) => ({
+                    text: optText,
+                    isCorrect: oIdx === qObj.correct
+                }));
+
+                // Shuffle options
+                for (let i = optionsWithOrig.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [optionsWithOrig[i], optionsWithOrig[j]] = [optionsWithOrig[j], optionsWithOrig[i]];
+                }
+
+                let newCorrectIdx = optionsWithOrig.findIndex(o => o.isCorrect);
+
+                return {
+                    questionIndex: idx + 1,
+                    originalId: qObj.id,
+                    questionText: qObj.q,
+                    options: optionsWithOrig.map(o => o.text),
+                    correctIdx: newCorrectIdx
+                };
+            });
+        }
+
+        // RENDER CURRENT QUESTION
+        function renderQuestion(idx) {
+            currentQuestionIdx = idx;
+            const q = currentExamQuestions[idx];
+
+            document.getElementById('questionNumberTitle').innerText = `CÂU HỎI ${idx + 1} / 50`;
+            document.getElementById('questionText').innerText = `${idx + 1}. ${q.questionText}`;
+
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            const prefixes = ['A', 'B', 'C', 'D'];
+
+            q.options.forEach((optText, oIdx) => {
+                const isSelected = userAnswers[idx] === oIdx;
+
+                const optDiv = document.createElement('div');
+                optDiv.onclick = () => selectOption(idx, oIdx);
+                optDiv.className = `p-4 rounded-xl border-2 transition duration-150 cursor-pointer flex items-center space-x-3 ${
+                    isSelected 
+                    ? 'border-army-main bg-emerald-50 text-army-dark shadow-md font-bold' 
+                    : 'border-gray-200 hover:border-army-light hover:bg-gray-50 text-gray-700'
+                }`;
+
+                optDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+                        isSelected ? 'bg-army-main text-gold-main' : 'bg-gray-200 text-gray-600'
+                    }">
+                        ${prefixes[oIdx]}
+                    </div>
+                    <div class="flex-grow text-sm md:text-base leading-snug">${optText}</div>
+                    ${isSelected ? '<i class="fas fa-check-circle text-army-main text-xl"></i>' : ''}
+                `;
+                container.appendChild(optDiv);
+            });
+
+            // Update Navigation Buttons
+            document.getElementById('btnPrev').disabled = (idx === 0);
+            
+            const btnNext = document.getElementById('btnNext');
+            if (idx === 49) {
+                btnNext.innerHTML = `Nộp bài <i class="fas fa-paper-plane ml-2"></i>`;
+                btnNext.onclick = confirmSubmitExam;
+            } else {
+                btnNext.innerHTML = `Câu tiếp <i class="fas fa-arrow-right ml-2"></i>`;
+                btnNext.onclick = () => navigateQuestion(1);
+            }
+
+            updateGridButtonsStatus();
+        }
+
+        function selectOption(qIdx, optionIdx) {
+            userAnswers[qIdx] = optionIdx;
+            renderQuestion(qIdx);
+            updateAnsweredBadge();
+        }
+
+        function navigateQuestion(direction) {
+            const newIdx = currentQuestionIdx + direction;
+            if (newIdx >= 0 && newIdx < 50) {
+                renderQuestion(newIdx);
+            }
+        }
+
+        // RENDER QUESTION GRID
+        function renderQuestionGrid() {
+            const grid = document.getElementById('questionGrid');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < 50; i++) {
+                const btn = document.createElement('button');
+                btn.id = `gridBtn_${i}`;
+                btn.onclick = () => renderQuestion(i);
+                btn.innerText = i + 1;
+                btn.className = `h-10 rounded-lg font-bold text-xs border transition flex items-center justify-center`;
+                grid.appendChild(btn);
+            }
+            updateGridButtonsStatus();
+            updateAnsweredBadge();
+        }
+
+        function updateGridButtonsStatus() {
+            for (let i = 0; i < 50; i++) {
+                const btn = document.getElementById(`gridBtn_${i}`);
+                if (!btn) continue;
+
+                const isCurrent = (i === currentQuestionIdx);
+                const isAnswered = userAnswers.hasOwnProperty(i);
+
+                if (isCurrent) {
+                    btn.className = `h-10 rounded-lg font-black text-sm bg-gold-main text-army-dark border-2 border-army-main shadow-md`;
+                } else if (isAnswered) {
+                    btn.className = `h-10 rounded-lg font-bold text-xs bg-army-main text-white border border-army-dark hover:brightness-125`;
+                } else {
+                    btn.className = `h-10 rounded-lg font-medium text-xs bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200`;
+                }
+            }
+        }
+
+        function updateAnsweredBadge() {
+            const count = Object.keys(userAnswers).length;
+            document.getElementById('answeredCountBadge').innerText = `${count}/50`;
+        }
+
+        // TIMER LOGIC
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    alert("Đã hết thời gian làm bài! Hệ thống sẽ tự động nộp bài thi của bạn.");
+                    submitExam();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const m = Math.floor(timeRemaining / 60);
+            const s = timeRemaining % 60;
+            document.getElementById('timerDisplay').innerText = 
+                `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function confirmSubmitExam() {
+            const answeredCount = Object.keys(userAnswers).length;
+            let msg = `Bạn đã hoàn thành ${answeredCount}/50 câu hỏi. Bạn có chắc chắn muốn nộp bài thi?`;
+            if (answeredCount < 50) {
+                msg = `CẢNH BÁO: Bạn mới làm ${answeredCount}/50 câu hỏi. Còn ${50 - answeredCount} câu chưa chọn đáp án.\nBạn có chắc chắn muốn nộp bài ngay?`;
+            }
+
+            if (confirm(msg)) {
+                if (timerInterval) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                }
+                submitExam();
+            }
+        }
+
+        // SUBMIT & SCORE EXAM
+        function submitExam() {
+            const endTime = new Date();
+            const timeTakenSeconds = 1500 - Math.max(0, timeRemaining);
+            const minutesTaken = Math.floor(timeTakenSeconds / 60);
+            const secondsTaken = timeTakenSeconds % 60;
+            const timeTakenStr = `${minutesTaken} phút ${secondsTaken} giây`;
+
+            // Calculate Score
+            let correctCount = 0;
+            currentExamQuestions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.correctIdx) {
+                    correctCount++;
+                }
+            });
+
+            const score = correctCount * 2; // 50 questions * 2 points = 100 max
+
+            // Determine Remark Text
+            let remarkText = "";
+            let remarkClass = "";
+
+            if (score <= 40) {
+                remarkText = "Chúc mừng bạn đã hoàn thành bài kiểm tra! Bạn cần cố gắng cải thiện kiến thức hơn nữa! Xin cảm ơn!";
+                remarkClass = "bg-red-50 text-militaryRed-dark border-militaryRed-main";
+            } else if (score <= 80) {
+                remarkText = "Chúc mừng bạn đã hoàn thành bài kiểm tra! Bạn đã được số điểm khá tốt! Xin cảm ơn!";
+                remarkClass = "bg-amber-50 text-amber-900 border-gold-dark";
+            } else {
+                remarkText = "Chúc mừng bạn đã hoàn thành bài kiểm tra! Số điểm của bạn rất ấn tượng! Xin cảm ơn!";
+                remarkClass = "bg-emerald-50 text-emerald-900 border-emerald-600";
+            }
+
+            // Display Results Page
+            document.getElementById('resultUserHeader').innerHTML = `
+                <div class="text-base font-black text-army-main">${currentUser.name}</div>
+                <div class="text-xs text-gray-600">${currentUser.rank} - ${currentUser.position} (${currentUser.unit})</div>
+                <div class="text-xs text-gray-500 mt-1">Thời gian làm bài: <b>${timeTakenStr}</b> | Ngày: ${endTime.toLocaleDateString('vi-VN')}</div>
+            `;
+
+            document.getElementById('resultScore').innerText = `${score} / 100`;
+            document.getElementById('resultCorrectCount').innerText = `Trả lời đúng ${correctCount}/50 câu (${(correctCount/50*100).toFixed(0)}%)`;
+
+            const evalBox = document.getElementById('resultEvaluationBox');
+            evalBox.className = `p-4 rounded-xl font-bold text-base md:text-lg border-2 leading-relaxed ${remarkClass}`;
+            evalBox.innerText = remarkText;
+
+            // Render Detail Review
+            renderReviewSection();
+
+            // Save to LocalStorage Leaderboard
+            saveResultToLeaderboard({
+                name: currentUser.name,
+                rank: currentUser.rank,
+                position: currentUser.position,
+                unit: currentUser.unit,
+                score: score,
+                correctCount: correctCount,
+                timeStr: timeTakenStr,
+                timeSeconds: timeTakenSeconds,
+                date: endTime.toLocaleDateString('vi-VN') + ' ' + endTime.toLocaleTimeString('vi-VN', {hour:'2-digit', minute:'2-digit'})
+            });
+
+            showPage('pageResult');
+        }
+
+        // RENDER DETAILED REVIEW
+        function renderReviewSection() {
+            const container = document.getElementById('reviewContainer');
+            container.innerHTML = '';
+
+            const prefixes = ['A', 'B', 'C', 'D'];
+
+            currentExamQuestions.forEach((q, idx) => {
+                const userSelected = userAnswers[idx];
+                const isCorrect = userSelected === q.correctIdx;
+
+                const qCard = document.createElement('div');
+                qCard.className = `p-4 rounded-xl border-2 ${isCorrect ? 'border-emerald-300 bg-emerald-50/40' : 'border-red-300 bg-red-50/40'}`;
+
+                let optionsHTML = '';
+                q.options.forEach((optText, oIdx) => {
+                    let optStyle = "border-gray-200 bg-white text-gray-700";
+                    let iconHTML = "";
+
+                    if (oIdx === q.correctIdx) {
+                        optStyle = "border-emerald-600 bg-emerald-100 text-emerald-900 font-bold";
+                        iconHTML = `<span class="ml-auto text-emerald-700 font-bold text-xs bg-emerald-200 px-2 py-0.5 rounded"><i class="fas fa-check mr-1"></i>Đáp án đúng</span>`;
+                    }
+                    if (userSelected === oIdx && !isCorrect) {
+                        optStyle = "border-red-600 bg-red-100 text-red-900 font-bold";
+                        iconHTML = `<span class="ml-auto text-red-700 font-bold text-xs bg-red-200 px-2 py-0.5 rounded"><i class="fas fa-times mr-1"></i>Bạn chọn sai</span>`;
+                    }
+
+                    optionsHTML += `
+                        <div class="p-2.5 rounded-lg border flex items-center space-x-2 text-sm ${optStyle}">
+                            <span class="font-bold">${prefixes[oIdx]}.</span>
+                            <span>${optText}</span>
+                            ${iconHTML}
+                        </div>
+                    `;
+                });
+
+                qCard.innerHTML = `
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <div class="font-bold text-gray-800 text-base">
+                            <span class="army-gradient text-gold-main text-xs px-2 py-0.5 rounded font-black mr-2">CÂU ${idx + 1}</span>
+                            ${q.questionText}
+                        </div>
+                        <div>
+                            ${isCorrect 
+                                ? '<span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full"><i class="fas fa-check mr-1"></i>+2 ĐIỂM</span>' 
+                                : '<span class="bg-militaryRed-main text-white text-xs font-bold px-2.5 py-1 rounded-full"><i class="fas fa-times mr-1"></i>0 ĐIỂM</span>'}
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        ${optionsHTML}
+                    </div>
+                `;
+
+                container.appendChild(qCard);
+            });
+        }
+
+        function scrollToReview() {
+            document.getElementById('reviewSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // LEADERBOARD LOCALSTORAGE LOGIC
+        const LOCAL_STORAGE_KEY = 'ly_son_exam_leaderboard_2026';
+
+        function getLeaderboardData() {
+            const data = localStorage.getItem(LOCAL_STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveResultToLeaderboard(record) {
+            let list = getLeaderboardData();
+            list.push(record);
+
+            // Sort by score DESC, then by timeSeconds ASC
+            list.sort((a, b) => {
+                if (b.score !== a.score) {
+                    return b.score - a.score;
+                }
+                return a.timeSeconds - b.timeSeconds;
+            });
+
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(list));
+// 1. Chuẩn bị dữ liệu để gửi đi
+const resultData = {
+  fullName: currentUser.fullName, // Họ tên
+  rank: currentUser.rank,         // Cấp bậc
+  position: currentUser.position, // Chức vụ
+  unit: currentUser.unit,         // Đơn vị
+  score: totalScore,              // Điểm số (ví dụ: 80)
+  timeSpent: timeTakenString      // Thời gian làm bài (ví dụ: "15:30")
+};
+
+// 2. Gửi dữ liệu sang Google Sheet
+fetch(GOOGLE_SCRIPT_URL, {
+  method: 'POST',
+  mode: 'no-cors', // Dùng chế độ này để trình duyệt không chặn kết nối ngang hàng
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(resultData)
+})
+.then(() => {
+  console.log("Đã gửi kết quả thành công lên hệ thống trung tâm!");
+  // Sau khi gửi xong, gọi hàm tải lại Bảng xếp hạng mới nhất
+  loadGlobalLeaderboard(); 
+})
+.catch(error => {
+  console.error("Lỗi khi kết nối đến máy chủ Google Sheet:", error);
+});
+            loadLeaderboard();
+        }
+
+        function loadLeaderboard() {
+            const list = getLeaderboardData();
+            const tbody = document.getElementById('leaderboardBody');
+            const noData = document.getElementById('noDataText');
+
+            tbody.innerHTML = '';
+
+            if (list.length === 0) {
+                noData.classList.remove('hidden');
+                return;
+            }
+
+            noData.classList.add('hidden');
+
+            list.forEach((item, idx) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-amber-50/50 transition border-b border-gray-100";
+
+                let rankBadge = `<span class="font-bold text-gray-600">${idx + 1}</span>`;
+                if (idx === 0) rankBadge = `<span class="w-6 h-6 rounded-full gold-gradient text-army-dark font-black text-xs flex items-center justify-center shadow"><i class="fas fa-crown"></i></span>`;
+                else if (idx === 1) rankBadge = `<span class="w-6 h-6 rounded-full bg-gray-300 text-gray-800 font-bold text-xs flex items-center justify-center">2</span>`;
+                else if (idx === 2) rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-600 text-white font-bold text-xs flex items-center justify-center">3</span>`;
+
+                tr.innerHTML = `
+                    <td class="p-2.5 text-center flex justify-center items-center">${rankBadge}</td>
+                    <td class="p-2.5 font-bold text-army-main">
+                        <div>${item.name}</div>
+                        <div class="text-[11px] font-semibold text-gray-500">${item.unit}</div>
+                    </td>
+                    <td class="p-2.5 text-xs text-gray-700">
+                        <div class="font-bold text-army-light">${item.rank}</div>
+                        <div>${item.position}</div>
+                    </td>
+                    <td class="p-2.5 text-center font-black text-base text-militaryRed-main font-mono">${item.score}</td>
+                    <td class="p-2.5 text-center text-xs text-gray-600">
+                        <div class="font-semibold">${item.timeStr}</div>
+                        <div class="text-[10px] text-gray-400">${item.date}</div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function clearLeaderboard() {
+            if (confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử Bảng xếp hạng?")) {
+                localStorage.removeItem(LOCAL_STORAGE_KEY);
+                loadLeaderboard();
+            }
+        }
+// Hàm lấy toàn bộ kết quả từ Google Sheet về để hiển thị
+function loadGlobalLeaderboard() {
+  const leaderboardBody = document.getElementById('leaderboard-body');
+  if (!leaderboardBody) return;
+
+  // Hiển thị dòng "Đang tải..." trong lúc chờ dữ liệu
+  leaderboardBody.innerHTML = `
+    <tr>
+      <td colspan="6" class="text-center py-4 text-gray-500">
+        <i class="fas fa-spinner fa-spin mr-2"></i>Đang tải bảng xếp hạng toàn quân...
+      </td>
+    </tr>
+  `;
+
+  // Gọi API lấy dữ liệu từ Google Sheet
+  fetch(GOOGLE_SCRIPT_URL)
+    .then(response => response.json())
+    .then(data => {
+      // Sắp xếp thứ hạng: 
+      // - Ưu tiên 1: Điểm cao hơn đứng trước (Score giảm dần)
+      // - Ưu tiên 2: Cùng điểm thì thời gian ít hơn đứng trước (TimeSpent tăng dần)
+      data.sort((a, b) => {
+        if (b.score !== a.score) {
+          return b.score - a.score;
+        }
+        return a.timeSpent.localeCompare(b.timeSpent);
+      });
+
+      // Xóa nội dung chờ và in danh sách ra bảng
+      leaderboardBody.innerHTML = '';
+
+      if (data.length === 0) {
+        leaderboardBody.innerHTML = `
+          <tr>
+            <td colspan="6" class="text-center py-4 text-gray-500">Chưa có lượt thi nào được ghi nhận.</td>
+          </tr>
+        `;
+        return;
+      }
+
+      // Duyệt qua từng người và thêm dòng vào bảng HTML
+      data.forEach((item, index) => {
+        // Tạo hiệu ứng màu sắc cho Top 3
+        let rankBadge = index + 1;
+        if (index === 0) rankBadge = '🥇 1';
+        else if (index === 1) rankBadge = '🥈 2';
+        else if (index === 2) rankBadge = '🥉 3';
+
+        const row = `
+          <tr class="border-b hover:bg-gray-50 transition">
+            <td class="px-4 py-3 text-center font-bold">${rankBadge}</td>
+            <td class="px-4 py-3 font-semibold text-gray-800">${item.fullName}</td>
+            <td class="px-4 py-3 text-center">${item.rank}</td>
+            <td class="px-4 py-3 text-center">${item.unit}</td>
+            <td class="px-4 py-3 text-center font-bold text-red-600">${item.score} điểm</td>
+            <td class="px-4 py-3 text-center text-gray-600">${item.timeSpent}</td>
+          </tr>
+        `;
+        leaderboardBody.innerHTML += row;
+      });
+    })
+    .catch(err => {
+      console.error("Không thể tải bảng xếp hạng:", err);
+      leaderboardBody.innerHTML = `
+        <tr>
+          <td colspan="6" class="text-center py-4 text-red-500">
+            Không thể kết nối đến máy chủ bảng xếp hạng. Vui lòng thử lại sau!
+          </td>
+        </tr>
+      `;
+    });
+}
+
+// Tự động gọi hàm tải Bảng xếp hạng ngay khi người dùng vừa mở trang web
+document.addEventListener("DOMContentLoaded", function() {
+  loadGlobalLeaderboard();
+});
+    </script>
+</body>
+</html>
